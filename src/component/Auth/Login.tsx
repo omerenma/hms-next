@@ -56,17 +56,18 @@ const Login = () => {
         display: "flex",
         flexDirection: "column",
         border: "1px solid #eee",
-        padding: 50,
-        height: 400,
+        padding: 10,
+        // height: 400,
       }}
     >
-      <Typography sx={{ textAlign: "center" }}>Login Form</Typography>
+      <Typography sx={{ textAlign: "center", fontWeight:600 }}>Login</Typography>
       <TextFields
         type="text"
         label="Email"
         onChange={handleEmailChange}
         name={email}
         value={email}
+        width={250}
       />
       <TextFields
         type="password"

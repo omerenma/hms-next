@@ -44,12 +44,14 @@ export const TextFields = ({
   const classes = useStyles();
   return (
     <TextField
-      className={classes.input}
+      // className={classes.input}
       name={name}
       label={label}
       type={type}
       onChange={onChange}
       value={value}
+      style={{width:width}}
+
     />
   );
 };
@@ -63,7 +65,10 @@ type ButtonProps = {
 export const Buttons = ({ submit, children, width }: ButtonProps) => {
   const classes = useStyles();
   return (
-    <Button className={classes.btn} onClick={submit}>
+    <Button
+      style={{ backgroundColor: "green", color: "#fff", marginTop: 50 }}
+      onClick={submit}
+    >
       {children}
     </Button>
   );
