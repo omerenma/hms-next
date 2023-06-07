@@ -26,7 +26,7 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response = await request.post(
-          "http://localhost:5000/admission/add", data
+          "https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/admission/add", data
         );
         
         return response;

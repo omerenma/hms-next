@@ -35,7 +35,7 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response = await request.post(
-          "http://hmsenvironment.eba-xk6bpjzs.us-east-1.elasticbeanstalk.com:8080/users/register",
+          "https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/register",
           data
         );
         

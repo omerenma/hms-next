@@ -34,7 +34,7 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response = await request.post(
-          "http://localhost:5000/book_appointments/book",
+          "https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/book_appointments/book",
           data
         );
         

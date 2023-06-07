@@ -27,7 +27,7 @@ const initialState = {
     async (id:number) => {
       try {
         const request = new ApiRequest();
-        const response = await request.delete(`http://localhost:5000/users/user/${id}`);
+        const response = await request.delete(`https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/user/${id}`);
         return response;
       } catch (error:any) {
         return error.message

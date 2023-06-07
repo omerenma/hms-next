@@ -41,7 +41,7 @@ export const loginAction = createAsyncThunk(
     try {
       const request = new ApiRequest();
       const response = await request.post(
-        "http://hmsenvironment.eba-xk6bpjzs.us-east-1.elasticbeanstalk.com/users/signin",
+        "https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/signin",
         data
       );
       localStorage.setItem('token', response && response.token)

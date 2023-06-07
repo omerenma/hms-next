@@ -34,7 +34,7 @@ const initialState = {
     async (data: EditData,  thunkApi) => {
       try {
         const request = new ApiRequest();
-        const response = await request.edit(`http://localhost:5000/users/user`, data);
+        const response = await request.edit(`https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/user`, data);
         
         return response;
       } catch (error:any) {

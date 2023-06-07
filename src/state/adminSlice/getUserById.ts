@@ -29,7 +29,7 @@ const initialState = {
     async (id:number) => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers(`http://localhost:5000/users/getuser/${id}`);
+        const response = await request.getUsers(`https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/getuser/${id}`);
         return response;
       } catch (error:any) {
         return error.message
