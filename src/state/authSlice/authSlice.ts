@@ -48,8 +48,8 @@ export const loginAction = createAsyncThunk(
       localStorage.setItem('token', response && response.token)
       return response;
     } catch (error:any) {
-       return error.message
-      // return thunkApi.rejectWithValue(error);
+      //  return error.message
+      return thunkApi.rejectWithValue(error);
     }
   }
 );
@@ -79,6 +79,7 @@ export const loginAction = createAsyncThunk(
        state.role = payload && payload.role
     })
     builder.addCase(loginAction.rejected, (state, {payload}) => {
+      console.log(payload, 'payload')
     
         state.error = true;
         state.errorData = payload as Object
