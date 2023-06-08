@@ -78,8 +78,9 @@ export const loginAction = createAsyncThunk(
        state.token = payload && payload.token
        state.role = payload && payload.role
     })
-    builder.addCase(loginAction.rejected, (state, {payload}) => {
+    builder.addCase(loginAction.rejected, (state, payload) => {
         state.error = true;
+        state.errorData = payload
     })
     // builder.addCase(loginAction.pending, (state, action) => {
     //     state.loading = true
