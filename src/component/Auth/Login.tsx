@@ -45,7 +45,6 @@ const Login = () => {
     };
     dispatch(loginAction(datas)).then((data) => {
       if (data.payload) {
-        localStorage.setItem("id", data.payload.id);
         router.push("/dashboard/layout/layout");
       }
     });
