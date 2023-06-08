@@ -48,8 +48,8 @@ export const loginAction = createAsyncThunk(
       localStorage.setItem('token', response && response.token)
       return response;
     } catch (error:any) {
-      // return error
-      return thunkApi.rejectWithValue(error);
+       return error.message
+      // return thunkApi.rejectWithValue(error);
     }
   }
 );
