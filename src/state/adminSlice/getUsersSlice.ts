@@ -1,8 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { useAppSeletor } from '@/src/store/hooks';
-
+import { baseUrl } from './url/baseUrl';
 interface Users {
     name:string;
     email:string;
@@ -27,7 +26,7 @@ const initialState = {
     async () => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers("https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/getusers");
+        const response = await request.getUsers(`${baseUrl}/users/getusers`);
         return response
       } catch (error:any) {
         return error.message

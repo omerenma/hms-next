@@ -2,6 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
 import { useAppSeletor } from '@/src/store/hooks';
+import { baseUrl } from './url/baseUrl';
 
 interface AdminState {
     loading: boolean;
@@ -29,7 +30,7 @@ const initialState = {
     async (id:number) => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers(`https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/getuser/${id}`);
+        const response = await request.getUsers(`${baseUrl}/users/getuser/${id}`);
         return response;
       } catch (error:any) {
         return error.message

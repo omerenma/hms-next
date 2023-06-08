@@ -1,8 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { useAppSeletor } from '@/src/store/hooks';
-
+import { baseUrl } from '../adminSlice/url/baseUrl';
 
 
 const initialState = {
@@ -23,7 +22,7 @@ const initialState = {
     async (id:number) => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers(`http://localhost:5000/book_appointments/getappointments/${id}`);
+        const response = await request.getUsers(`${baseUrl}/book_appointments/getappointments/${id}`);
         return response;
       } catch (error:any) {
         return error.message

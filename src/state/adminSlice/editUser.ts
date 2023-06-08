@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-
+import { baseUrl } from './url/baseUrl';
 interface AdminState {
     loading: boolean;
     success: boolean;
@@ -34,7 +34,7 @@ const initialState = {
     async (data: EditData,  thunkApi) => {
       try {
         const request = new ApiRequest();
-        const response = await request.edit(`https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/user`, data);
+        const response = await request.edit(`${baseUrl}/production/users/user`, data);
         
         return response;
       } catch (error:any) {

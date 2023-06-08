@@ -1,8 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { useAppSeletor } from '@/src/store/hooks';
-
+import { baseUrl } from '../adminSlice/url/baseUrl';
 interface Admissions {
     admission_date:string;
     date:string;
@@ -36,7 +35,7 @@ const initialState = {
     async () => {
       try {
         const request = new ApiRequest();
-        const response:Admissions = await request.getUsers("http://localhost:5000/admission/get");
+        const response:Admissions = await request.getUsers(`${baseUrl}/admission/get`);
         return response;
       } catch (error:any) {
         return error.message

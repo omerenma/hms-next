@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-
+import { baseUrl } from '../adminSlice/url/baseUrl';
 const initialState = {
     loading: false,
     success: false,
@@ -33,7 +33,7 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response = await request.post(
-          "http://localhost:5000/patient/add", data
+          `${baseUrl}/patient/add`, data
         );
         
         return response;

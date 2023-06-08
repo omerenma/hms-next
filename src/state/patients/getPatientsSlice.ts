@@ -1,8 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { useAppSeletor } from '@/src/store/hooks';
-
+import { baseUrl } from '../adminSlice/url/baseUrl';
 interface Patients {
     name:string;
     email:string;
@@ -32,7 +31,7 @@ const initialState = {
     async () => {
       try {
         const request = new ApiRequest();
-        const response:Patients = await request.getUsers("http://localhost:5000/patient/");
+        const response:Patients = await request.getUsers(`${baseUrl}/patient/`);
         return response;
       } catch (error:any) {
         return error.message

@@ -83,7 +83,7 @@ export class ApiRequest {
       const response = await axios.post(uri, data);
       return response.data;
     } catch (error: any) {
-      return error.response.data.message;
+      return error.response;
     }
   }
 

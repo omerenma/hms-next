@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-
+import { baseUrl } from './url/baseUrl';
 interface AdminState {
     loading: boolean;
     success: boolean;
@@ -27,7 +27,7 @@ const initialState = {
     async (id:number) => {
       try {
         const request = new ApiRequest();
-        const response = await request.delete(`https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/users/user/${id}`);
+        const response = await request.delete(`${baseUrl}/users/user/${id}`);
         return response;
       } catch (error:any) {
         return error.message

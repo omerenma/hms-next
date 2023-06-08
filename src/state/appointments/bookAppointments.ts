@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-
+import { baseUrl } from '../adminSlice/url/baseUrl';
 interface AdminState {
     loading: boolean;
     success: boolean;
@@ -34,7 +34,7 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response = await request.post(
-          "https://vc0e8cula8.execute-api.us-east-1.amazonaws.com/production/book_appointments/book",
+          `${baseUrl}/book_appointments/book`,
           data
         );
         
