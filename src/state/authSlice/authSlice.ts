@@ -17,6 +17,7 @@ const initialState = {
   token:"",
   role:"",
   error: false,
+  errorData:{}
   
 } 
 
@@ -31,7 +32,7 @@ interface LoginResponse {
     name:string;
     token:string;
     role:string;
-    data:{}
+    data:{} 
     
 }
 // ACTION
@@ -47,8 +48,8 @@ export const loginAction = createAsyncThunk(
       localStorage.setItem('token', response && response.token)
       return response;
     } catch (error:any) {
-      return error
-      //return thunkApi.rejectWithValue(error);
+      // return error
+      return thunkApi.rejectWithValue(error);
     }
   }
 );
@@ -80,6 +81,7 @@ export const loginAction = createAsyncThunk(
     builder.addCase(loginAction.rejected, (state, {payload}) => {
     
         state.error = true;
+        state.errorData = payload as Object
     })
     // builder.addCase(loginAction.pending, (state, action) => {
     //     state.loading = true
