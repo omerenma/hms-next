@@ -40,7 +40,7 @@ const Form = ({ close, title }: Props) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const data = {
-      name: formData.patients_name,
+      patients_name: formData.patients_name,
       sex: formData.sex,
       dob: formData.dob,
       residential_address: formData.residential_address,
