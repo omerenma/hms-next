@@ -83,8 +83,7 @@ export class ApiRequest {
       const response = await axios.post(uri, data);
       return response.data;
     } catch (error: any) {
-      console.log(error, 'login error')
-      return error.messagae;
+      return error.response.data.message;
     }
   }
 

@@ -25,7 +25,6 @@ const Form = ({ close, title }: Props) => {
   const dispatch = useAppDispatch();
   const id = useContext(Context);
 
-  console.log(id, 'doctor id')
   const { loading, success } = useAppSeletor((state) => state.addPatientSlice);
   const [formData, setFormData] = useState({
     patient_id: "",

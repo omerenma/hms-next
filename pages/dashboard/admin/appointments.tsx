@@ -10,7 +10,6 @@ import { getAppointmentsAction } from "@/src/state/appointments/getAppointments"
 const Appointments = () => {
   const dispatch = useAppDispatch();
   const { data } = useAppSeletor((state) => state.getAppointments);
-  console.table(data)
   useEffect(() => {
     dispatch(getAppointmentsAction());
   }, [dispatch]);

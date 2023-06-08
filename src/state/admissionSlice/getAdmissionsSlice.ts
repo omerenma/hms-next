@@ -37,7 +37,6 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response:Admissions = await request.getUsers("http://localhost:5000/admission/get");
-        console.log(response)
         return response;
       } catch (error:any) {
         return error.message

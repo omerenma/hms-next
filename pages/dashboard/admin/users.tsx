@@ -20,7 +20,6 @@ const Users = () => {
     useEffect(() => {
         dispatch(getUsersAction())
     }, [dispatch, success])
-    console.log(data, 'users')
   return (
     <Container>
      <Table data={data} />
