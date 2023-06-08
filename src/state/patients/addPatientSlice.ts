@@ -13,7 +13,7 @@ const initialState = {
   }
 
   interface patientData {
-    name:string;
+    patients_name:string;
     email: string;
     sex:string;
     dob:string;
