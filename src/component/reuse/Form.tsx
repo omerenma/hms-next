@@ -21,7 +21,7 @@ const Form = ({ close, title }: Props) => {
   const dispatch = useAppDispatch();
   const { loading, success } = useAppSeletor((state) => state.addPatientSlice);
   const [formData, setFormData] = useState({
-    name: "",
+    patients_name: "",
     email: "",
     dob: "",
     sex: "",
@@ -40,7 +40,7 @@ const Form = ({ close, title }: Props) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const data = {
-      name: formData.name,
+      patients_name: formData.patients_name,
       sex: formData.sex,
       dob: formData.dob,
       residential_address: formData.residential_address,
@@ -53,7 +53,7 @@ const Form = ({ close, title }: Props) => {
     dispatch(addPatientAction(data));
 
     setFormData({
-      name: "",
+      patients_name: "",
       email: "",
       dob: "",
       sex: "",
@@ -84,7 +84,7 @@ const Form = ({ close, title }: Props) => {
             variant="outlined"
             onChange={handleFormChange}
             name="name"
-            value={formData.name}
+            value={formData.patients_name}
           />
           <StyledTextField
             label="Gender"
