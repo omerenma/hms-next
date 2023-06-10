@@ -24,7 +24,7 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 interface MyAppProps extends AppProps {
   Component: NextPageWithLayout;
   emotionCache?: EmotionCache;
-  session: Session;
+  // session: Session;
 }
 
 const clientSideEmotionCache = createEmotionCache();

@@ -34,7 +34,6 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const Topbar: FC<Props> = ({ open, handleOpen }) => {
-  const { data: session } = useSession();
   return (
     <AppBar position="fixed" open={open} sx={{ background: "transparent" }}>
       <Toolbar>
@@ -53,7 +52,6 @@ const Topbar: FC<Props> = ({ open, handleOpen }) => {
         
           <Box>
             <Typography sx={{ color: "#000" }}>
-              {session?.user?.name}
             </Typography>
           </Box>
           <Box>
