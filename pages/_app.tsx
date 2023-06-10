@@ -37,7 +37,7 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <SessionProvider session={props.session}>
+      {/* <SessionProvider session={props.session}> */}
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
           {/* <Component {...pageProps} /> */}
@@ -45,7 +45,7 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
             {getLayout(<Component {...pageProps} />)}
             </Provider>
         </ThemeProvider>
-      </SessionProvider>
+      {/* </SessionProvider> */}
     </CacheProvider>
   );
 };

@@ -80,7 +80,12 @@ export class ApiRequest {
   async post(uri: string, data: BodyType | PatientType | admissionData | AppointmentData | DoctorData | LoginData
   ): Promise<LoginResponseType> {
     try {
-      const response = await axios.post(uri, data);
+      const token = localStorage.getItem('token')
+      const response = await axios.post(uri, data, {
+        headers:{
+          'Authorization':token
+        }
+      });
       return response.data;
     } catch (error: any) {
       return error.response;
