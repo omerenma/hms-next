@@ -80,7 +80,7 @@ const Form = ({ close, title }: Props) => {
             label="Name"
             variant="outlined"
             onChange={handleFormChange}
-            name="patients_name"
+            name="name"
             value={formData.name}
           />
           <StyledTextField
