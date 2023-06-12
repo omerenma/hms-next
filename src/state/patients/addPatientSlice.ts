@@ -27,7 +27,7 @@ const initialState = {
   // ACTION
 
   export const addPatientAction = createAsyncThunk(
-    "admin/action",
+    "add/action",
     async (data: patientData, thunkApi) => {
       try {
         const request = new ApiRequest();
@@ -45,7 +45,7 @@ const initialState = {
   
   
    const addPatientSlice = createSlice({
-    name: "addUser",
+    name: "addPatients",
     initialState,
     reducers: {
     },
