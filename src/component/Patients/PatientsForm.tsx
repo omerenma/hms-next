@@ -21,14 +21,13 @@ const Form = ({ close, title }: Props) => {
   const dispatch = useAppDispatch();
   const { loading, success } = useAppSeletor((state) => state.addPatientSlice);
   const [formData, setFormData] = useState({
-    patients_name: "",
+    name: "",
     email: "",
     dob: "",
     sex: "",
     phone_no: "",
     residential_address: "",
-    date: "",
-    next_of_kin: "",
+    next_of_kin_name: "",
     next_of_kin_phone_no: "",
   });
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,27 +39,25 @@ const Form = ({ close, title }: Props) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const data = {
-      patients_name: formData.patients_name,
+      name: formData.name,
       sex: formData.sex,
       dob: formData.dob,
       residential_address: formData.residential_address,
-      date: formData.date,
       email: formData.email,
       phone_no: formData.phone_no,
-      next_of_kin_name: formData.next_of_kin,
+      next_of_kin_name: formData.next_of_kin_name,
       next_of_kin_phone_no: formData.next_of_kin_phone_no,
     };
     dispatch(addPatientAction(data));
 
     setFormData({
-      patients_name: "",
+      name: "",
       email: "",
       dob: "",
       sex: "",
       phone_no: "",
       residential_address: "",
-      date: "",
-      next_of_kin: "",
+      next_of_kin_name: "",
       next_of_kin_phone_no: "",
     });
     dispatch(getPatientsAction());
@@ -84,7 +81,7 @@ const Form = ({ close, title }: Props) => {
             variant="outlined"
             onChange={handleFormChange}
             name="patients_name"
-            value={formData.patients_name}
+            value={formData.name}
           />
           <StyledTextField
             label="Gender"
@@ -124,19 +121,11 @@ const Form = ({ close, title }: Props) => {
             value={formData.residential_address}
           />
           <StyledTextField
-            label="Date"
-            type="date"
-            variant="outlined"
-            onChange={handleFormChange}
-            name="date"
-            value={formData.date}
-          />
-          <StyledTextField
             label="Next of kin"
             variant="outlined"
             onChange={handleFormChange}
-            name="next_of_kin"
-            value={formData.next_of_kin}
+            name="next_of_kin_name"
+            value={formData.next_of_kin_name}
           />
           <StyledTextField
             label="Next of kin phone number"

@@ -11,12 +11,11 @@ interface LoginData {
   password:string
 }
 interface PatientType {
-  patients_name: string;
+  name: string;
   email: string;
   sex: string;
   dob: string;
   residential_address: string;
-  date: string;
   phone_no: string;
   next_of_kin_name: string;
   next_of_kin_phone_no: string;
