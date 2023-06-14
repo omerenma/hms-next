@@ -1,2 +1,2 @@
-export const baseUrl = 'https://3sjfjmyfjh.execute-api.us-east-1.amazonaws.com/production'
+export const baseUrl = 'Ehsenvironment.eba-ztbwpsmd.us-east-1.elasticbeanstalk.com'
 
