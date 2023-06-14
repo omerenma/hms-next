@@ -42,7 +42,7 @@ export const loginAction = createAsyncThunk(
     try {
       const request = new ApiRequest();
       const response = await request.post(
-        `${baseUrl.replace(/^http[s]?:\/\/.+?\//, '')}/users/signin`,
+        `${baseUrl}/users/signin`,
         data
       );
       localStorage.setItem('token', response && response.token)
