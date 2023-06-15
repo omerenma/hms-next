@@ -71,9 +71,32 @@ const UserTable = ({ data }: Prop) => {
         component={Paper}
         style={{ width: 900, margin: "0 auto" }}
       >
-      {
-        data.length === 0 ? "Loading...": "Data"
-      }
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell align="center">Email</StyledTableCell>
+              <StyledTableCell align="center">Role</StyledTableCell>
+              <StyledTableCell align="center">Action</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {
+              data.length === 0 ? "LOADING" :  data.map((row) => (
+                <StyledTableRow key={row.id}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.name}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">{row.email}</StyledTableCell>
+                  <StyledTableCell align="center">{row.role}</StyledTableCell>
+                  <StyledTableCell align="center">
+                    <SimpleDialog id={row.id} />
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))
+            }
+          </TableBody>
+        </Table>
       </TableContainer>
     </div>
   );

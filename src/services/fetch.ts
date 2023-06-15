@@ -53,7 +53,7 @@ export class ApiRequest {
       const token = localStorage.getItem("token");
       const response = await axios.get(uri, {
         headers: {
-          Authorization: token,
+          "Authorization": `Bearer ${token}`,
         },
       });
       return response.data;
