@@ -1,3 +1,3 @@
-export const baseUrl = 'http://Ehsenvironment.eba-ztbwpsmd.us-east-1.elasticbeanstalk.com'
+export const baseUrl = 'http://ehsenvironment.eba-by2ipf3e.us-east-1.elasticbeanstalk.com/'
 
 

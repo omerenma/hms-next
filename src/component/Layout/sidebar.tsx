@@ -26,7 +26,6 @@ import {
 } from "@mui/icons-material";
 
 import { useRouter } from "next/router";
-import { useSession, signIn, signOut } from "next-auth/react";
 import { logout } from "../../state/authSlice/authSlice";
 import { useAppDispatch } from "@/src/store/hooks";
 
@@ -135,7 +134,6 @@ export const SideDrawer: FC<Props> = ({ open, handleClose, role }) => {
   const dispatch = useAppDispatch();
   const theme = useTheme();
   const router = useRouter();
-  const session = useSession();
 
   const handleRouting = (url: string) => {
     router.push(url);
