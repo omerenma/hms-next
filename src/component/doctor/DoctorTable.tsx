@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, useEffect} from "react";
 import {
   Table,
   TableBody,
@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { Button } from "@mui/material";
 import Form from "./DoctorForm";
+import { getDoctorsAction } from "@/src/state/doctor/getDoctorsSlice";
 export const Context = createContext('')
 interface Props {
 data:{}[];
