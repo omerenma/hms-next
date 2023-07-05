@@ -12,9 +12,10 @@ import { getPatientsAction } from "@/src/state/patients/getPatientsSlice";
 const Patients = () => {
     const dispatch = useAppDispatch()
     const data = useAppSeletor(state =>  state.getPatientsSlice.data)
+    const { success} = useAppSeletor(state => state.addPatientSlice)
 useEffect(() => {
     dispatch(getPatientsAction())
-}, [dispatch])
+}, [dispatch, success])
     
   return (
     <Box>

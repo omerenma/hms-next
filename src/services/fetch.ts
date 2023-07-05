@@ -48,6 +48,17 @@ interface DoctorData {
 export class ApiRequest {
   constructor() {}
 
+  async login(uri: string, data:LoginData
+    ): Promise<LoginResponseType> {
+      try {
+        const response = await axios.post(uri, data, {
+        });
+        return response.data;
+      } catch (error: any) {
+        return error.response;
+      }
+    }
+
   async getUsers(uri: string) {
     try {
       const token = localStorage.getItem("token");
@@ -67,7 +78,7 @@ export class ApiRequest {
       const token = localStorage.getItem("token");
       const response = await axios.get(uri, {
         headers: {
-          Authorization: token,
+          "Authorization": `Bearer ${token}`,
         },
       });
       return response.data;
@@ -76,13 +87,13 @@ export class ApiRequest {
     }
   }
 
-  async post(uri: string, data: BodyType | PatientType | admissionData | AppointmentData | DoctorData | LoginData
+  async post(uri: string, data: BodyType | PatientType | admissionData | AppointmentData | DoctorData 
   ): Promise<LoginResponseType> {
     try {
       const token = localStorage.getItem('token')
       const response = await axios.post(uri, data, {
         headers:{
-          'Authorization':token
+          "Authorization":`Bearer ${token}`
         }
       });
       return response.data;
@@ -96,7 +107,7 @@ export class ApiRequest {
       const token = localStorage.getItem("token");
       const response = await axios.delete(url, {
         headers: {
-          Authorization: token,
+          "Authorization": `Bearer ${token}`,
         },
       });
       return response.data;
@@ -109,7 +120,7 @@ export class ApiRequest {
       const token = localStorage.getItem("token");
       const response = await axios.put(uri, data, {
         headers: {
-          Authorization: token,
+          "Authorization": `Bearer ${token}`,
         },
       });
       return response.data;

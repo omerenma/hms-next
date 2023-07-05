@@ -53,11 +53,14 @@ const Login = () => {
     <Box
       sx={{
         display: "flex",
+        width:"400px",
         flexDirection: "column",
+        justifyContent:'center',
+        alignContent:'center',
         border: "1px solid #eee",
         padding: 10,
-        // height: 400,
-      }}
+        margin:'0 auto'
+            }}
     >
       <Typography sx={{ textAlign: "center", fontWeight:600 }}>Login</Typography>
       <TextFields

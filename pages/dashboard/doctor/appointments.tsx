@@ -30,16 +30,6 @@ const Appointments = () => {
   }, [dispatch, id]);
   return (
     <Box sx={{marginTop:-2}}>
-      {/* <Typography
-        sx={{
-          textAlign: "center",
-          position: "relative",
-          // bottom: 15,
-          fontWeight: 600,
-        }}
-      >
-        Doctors Appointment Schedules
-      </Typography> */}
       <Box component={Container}>
         <Grid container spacing={1.2}>
           <Grid item xs={6} sm={6}>

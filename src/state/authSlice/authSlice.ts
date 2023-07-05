@@ -41,7 +41,7 @@ export const loginAction = createAsyncThunk(
   async (data: Data, thunkApi) => {
     try {
       const request = new ApiRequest();
-      const response = await request.post(
+      const response = await request.login(
         `${baseUrl}/users/signin`,
         data
       );

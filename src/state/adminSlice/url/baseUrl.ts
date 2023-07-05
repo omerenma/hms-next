@@ -1,3 +1,4 @@
-export const baseUrl = 'http://ehsenvironment.eba-by2ipf3e.us-east-1.elasticbeanstalk.com/'
+export const baseUrl = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev'
+export const localUrl = 'http://localhost:5000'
 
 

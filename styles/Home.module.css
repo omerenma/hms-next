@@ -1,10 +1,13 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* padding: 6rem; */
+  /* height: 100vh; */
+  display: grid;
+  place-items:center;
+  height: 100vh;
+  
 }
 
 .description {

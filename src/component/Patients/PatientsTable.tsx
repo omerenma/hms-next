@@ -46,7 +46,7 @@ function PatientsTable({data, title}:Props) {
           <TableBody>
             {data.map((row:any) => (
             <TableRow key={row.id}>
-            <TableCell>{row.patients_name}</TableCell>
+            <TableCell>{row.name}</TableCell>
             <TableCell>{row.sex}</TableCell>
             <TableCell>{row.dob}</TableCell>
             <TableCell>{row.email}</TableCell>
