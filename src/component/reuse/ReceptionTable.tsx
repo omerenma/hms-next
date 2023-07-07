@@ -18,6 +18,7 @@ data:{}[];
 title:string
 };
 function ReceptionTable({data, title}:Props) {
+  console.log(data, 'DATA')
     const [open, setOpen] = useState(false)
     const [id, setId] = useState('')
     const showForm = (id:string) => {
@@ -25,7 +26,6 @@ function ReceptionTable({data, title}:Props) {
         setId(id)
     }
   return (
-   
     <Box>
        <Typography style={{textAlign:'center'}} variant="h6">View appointments</Typography>
       <TableContainer component={Paper}>
@@ -34,11 +34,12 @@ function ReceptionTable({data, title}:Props) {
             <TableRow>
               <TableCell>Doctor name</TableCell>
               <TableCell>Sex</TableCell>
-              <TableCell>Dob</TableCell>
+              {/* <TableCell>Dob</TableCell> */}
               <TableCell>Email</TableCell>
-              <TableCell>Phone</TableCell>
               <TableCell>Specialty</TableCell>
               <TableCell>Patients name</TableCell>
+              <TableCell>Patients phone</TableCell>
+              <TableCell>Patients email</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -46,11 +47,12 @@ function ReceptionTable({data, title}:Props) {
             <TableRow key={row.id}>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.sex}</TableCell>
-              <TableCell>{row.dob}</TableCell>
+              {/* <TableCell>{row.dob}</TableCell> */}
               <TableCell>{row.email}</TableCell>
-              <TableCell>{row.phone_no}</TableCell>
               <TableCell>{row.specialty}</TableCell>
-              <TableCell>{row.patients_name}</TableCell>
+              <TableCell>{row[4]}</TableCell>
+              <TableCell>{row.phone_no}</TableCell>
+              {/* <TableCell>{row.phone_no}</TableCell> */}
             </TableRow>
           ))}
           </TableBody>

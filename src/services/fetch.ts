@@ -21,12 +21,13 @@ interface PatientType {
   next_of_kin_phone_no: string;
 }
 interface admissionData {
-  patients_id: string;
-  admission_date: string;
-  discharged_date: string;
+  patients_id:string
+  admission_date:string
+  admission_room_number:string
+  ailment:string
 }
 interface AppointmentData {
-  patient_id: string;
+  patients_id: string;
   doctor_id: string;
   appointment_date: string;
 }
@@ -62,6 +63,7 @@ export class ApiRequest {
   async getUsers(uri: string) {
     try {
       const token = localStorage.getItem("token");
+      console.log("TOKEN :", token)
       const response = await axios.get(uri, {
         headers: {
           "Authorization": `Bearer ${token}`,

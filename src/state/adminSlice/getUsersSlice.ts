@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { baseUrl } from './url/baseUrl';
+import { baseUrl, localUrl } from './url/baseUrl';
 interface Users {
     name:string;
     email:string;
@@ -26,7 +26,7 @@ const initialState = {
     async () => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers(`${baseUrl}/users/getusers`);
+        const response = await request.getUsers(`${localUrl}/users/getusers`);
         return response
       } catch (error:any) {
         return error.message

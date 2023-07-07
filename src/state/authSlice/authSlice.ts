@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiRequest } from "../../services/fetch";
-import { baseUrl } from "../adminSlice/url/baseUrl";
+import { baseUrl , localUrl} from "../adminSlice/url/baseUrl";
 interface LoginState {
   loading: boolean;
   success: boolean;
@@ -42,7 +42,7 @@ export const loginAction = createAsyncThunk(
     try {
       const request = new ApiRequest();
       const response = await request.login(
-        `${baseUrl}/users/signin`,
+        `${localUrl}/users/signin`,
         data
       );
       localStorage.setItem('token', response && response.token)

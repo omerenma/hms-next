@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { baseUrl } from './url/baseUrl';
+import { baseUrl , localUrl} from './url/baseUrl';
 
 interface AdminState {
     loading: boolean;
@@ -36,7 +36,7 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response = await request.post(
-          `${baseUrl}/users/register`,
+          `${localUrl}/users/register`,
           data
         );
         

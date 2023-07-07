@@ -27,7 +27,7 @@ const Form = ({ close, title }: Props) => {
 
   const { loading, success } = useAppSeletor((state) => state.addPatientSlice);
   const [formData, setFormData] = useState({
-    patient_id: "",
+    patients_id: "",
     appointment_date: "",
   });
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,14 +39,14 @@ const Form = ({ close, title }: Props) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const data = {
-      patient_id: formData.patient_id,
-      doctor_id: JSON.stringify(id),
+      patients_id: formData.patients_id,
+       doctor_id: JSON.stringify(id),
       appointment_date: formData.appointment_date,
     };
     dispatch(bookAppointmentsAction(data));
 
     setFormData({
-      patient_id: "",
+      patients_id: "",
       appointment_date: "",
     });
     dispatch(getAppointmentsAction());
@@ -86,8 +86,8 @@ const Form = ({ close, title }: Props) => {
             label="Patient id"
             variant="outlined"
             onChange={handleFormChange}
-            name="patient_id"
-            value={formData.patient_id}
+            name="patients_id"
+            value={formData.patients_id}
           />
           <StyledTextField
             label="Date"

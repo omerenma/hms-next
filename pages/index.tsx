@@ -1,25 +1,56 @@
 import Head from 'next/head'
+import React, {useMemo, useState} from 'react'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Login from '@/src/component/Auth/Login'
+import { Box, PaletteMode } from '@mui/material'
+import {useTheme, ThemeProvider, createTheme} from '@mui/material/styles'
+import {Brightness4, Brightness7} from '@mui/icons-material'
+import IconButton from '@mui/material/IconButton';
 
 const inter = Inter({ subsets: ['latin'] })
-// import { useSession } from "next-auth/react"
+             
 
+const ColorModeContext = React.createContext({toggleColorMode: () => {}})
+
+  
 export default function Home() {
-  // const session = useSession()
+
   return (
-    <>
-      <Head>
-        <title>Hospital Management System | HMS</title>
-        <meta name="description" content="Hospital management system for automating daily hospital processes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    
+    
       <main className={`${styles.main} `}>
         <Login/>
       </main>
-    </>
   )
 }
-// ${inter.className}
+
+// export default function ToggleColorMode() {
+//   const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+//   const colorMode = React.useMemo(
+//     () => ({
+//       toggleColorMode: () => {
+//         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+//       },
+//     }),
+//     [],
+//   );
+
+//   const theme = React.useMemo(
+//     () =>
+//       createTheme({
+//         palette: {
+//           mode,
+//         },
+//       }),
+//     [mode],
+//   );
+
+//   return (
+//     <ColorModeContext.Provider value={colorMode}>
+//       <ThemeProvider theme={theme}>
+//         <Home />
+//       </ThemeProvider>
+//     </ColorModeContext.Provider>
+//   );
+// }

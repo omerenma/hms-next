@@ -22,7 +22,8 @@ const Form = ({ close, title }: Props) => {
   const [formData, setFormData] = useState({
     patients_id: "",
     admission_date: "",
-    discharged_date: ""
+    admission_room_number:"",
+    ailment:""
   });
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -35,15 +36,16 @@ const Form = ({ close, title }: Props) => {
     const data = {
         patients_id: formData.patients_id,
         admission_date: formData.admission_date,
-        discharged_date: formData.discharged_date,
+        admission_room_number:formData.admission_room_number,
+        ailment:formData.ailment
     };
     dispatch(addAdmissionAction(data));
 
     setFormData({
         patients_id: "",
         admission_date: "",
-        discharged_date: "",
-     
+        admission_room_number:"",
+        ailment:""
     });
     dispatch(getAdmissionsAction())
   };
@@ -76,12 +78,20 @@ const Form = ({ close, title }: Props) => {
             value={formData.admission_date}
           />
           <StyledTextField
-            label="Discharge date"
-            type="date"
+            label="Room number"
+            type="text"
             variant="outlined"
             onChange={handleFormChange}
-            name="discharged_date"
-            value={formData.discharged_date}
+            name="admission_room_number"
+            value={formData.admission_room_number}
+          />
+           <StyledTextField
+            label="Ailment"
+            type="text"
+            variant="outlined"
+            onChange={handleFormChange}
+            name="ailment"
+            value={formData.ailment}
           />
           <StyledButton type="submit" variant="contained">
             {loading ? <CircularProgress size={15} /> : "Submit"}

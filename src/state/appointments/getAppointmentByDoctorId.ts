@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { baseUrl } from '../adminSlice/url/baseUrl';
+import { baseUrl, localUrl } from '../adminSlice/url/baseUrl';
 
 
 const initialState = {
@@ -22,7 +22,7 @@ const initialState = {
     async (id:number) => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers(`${baseUrl}/book_appointments/getappointments/${id}`);
+        const response = await request.getUsers(`${localUrl}/appointments/get/${id}`);
         return response;
       } catch (error:any) {
         return error.message

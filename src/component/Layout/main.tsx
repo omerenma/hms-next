@@ -16,7 +16,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export const Main = (data:ReactElement) => {
   return (
     <Box  sx={{ flexGrow: 1, p: 3 }}>
-      <DrawerHeader />
+      {/* <DrawerHeader /> */}
       {/* <h1 style={{color:'red'}}>Main</h1> */}
       {/* {data} */}
     </Box>

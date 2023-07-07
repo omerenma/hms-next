@@ -25,6 +25,7 @@ function MyTable({data, title}:Props) {
     <Box>
        {open ? <Form close={setOpen} title={title}/> : null}
         <Button sx={{float:'right'}} onClick={showForm}>{title}</Button>
+        <h3>View admissions</h3>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -37,12 +38,13 @@ function MyTable({data, title}:Props) {
               <TableCell>Phone</TableCell>
               <TableCell>Next of kin</TableCell>
               <TableCell>Next of kin phone number</TableCell>
+              <TableCell>Ailment</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {data.map((row:any) => (
             <TableRow key={row.id}>
-              <TableCell>{row.patients_name}</TableCell>
+              <TableCell>{row.name}</TableCell>
               <TableCell>{row.sex}</TableCell>
               <TableCell>{row.dob}</TableCell>
               <TableCell>{row.email}</TableCell>
@@ -50,6 +52,7 @@ function MyTable({data, title}:Props) {
               <TableCell>{row.phone_no}</TableCell>
               <TableCell>{row.next_of_kin_name}</TableCell>
               <TableCell>{row.next_of_kin_phone_no}</TableCell>
+              <TableCell>{row.ailment}</TableCell>
             </TableRow>
           ))}
           </TableBody>

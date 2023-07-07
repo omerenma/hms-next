@@ -22,7 +22,8 @@ import {
   Medication,
   HealthAndSafety,
   LocalHospital,
-  MeetingRoom
+  MeetingRoom,
+  BedOutlined
 } from "@mui/icons-material";
 
 import { useRouter } from "next/router";
@@ -57,6 +58,7 @@ const receptionMenuList = [
     name: "Book appointments",
     icon: <MeetingRoom />,
     link: "/dashboard/reception/book",
+    
   },
  
   {
@@ -64,6 +66,11 @@ const receptionMenuList = [
     icon: <MeetingRoom />,
     link: "/dashboard/reception/appointments",
   },
+  {
+    name:"Admissions",
+    icon:<BedOutlined/>,
+    link:"/dashboard/reception/admissions"
+  }
 ];
 
 // Doctor menu list

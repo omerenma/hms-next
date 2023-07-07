@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { baseUrl } from '../adminSlice/url/baseUrl';
+import { baseUrl, localUrl } from '../adminSlice/url/baseUrl';
 interface AdminState {
     loading: boolean;
     success: boolean;
@@ -21,7 +21,7 @@ const initialState = {
   }
 
   interface AppointmentData {
-    patient_id:string;
+    patients_id:string;
     doctor_id: string;
     appointment_date:string;
   }
@@ -34,7 +34,7 @@ const initialState = {
       try {
         const request = new ApiRequest();
         const response = await request.post(
-          `${baseUrl}/book_appointments/book`,
+          `${localUrl}/appointment/add`,
           data
         );
         
@@ -60,7 +60,7 @@ const initialState = {
         state.loading = false
         state.success = true
          state.data = payload
-         state.message = payload.message
+        //  state.message = payload.message
       })
       builder.addCase(bookAppointmentsAction.rejected, (state, action) => {
           state.error = true;

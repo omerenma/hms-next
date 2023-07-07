@@ -14,6 +14,7 @@ import getAppointmentByDoctorId from "../state/appointments/getAppointmentByDoct
 import bookAppointments from "../state/appointments/bookAppointments"
 import addDoctorSlice from "../state/doctor/addDoctorSlice"
 import getDoctorsSlice from "../state/doctor/getDoctorsSlice"
+import getDoctorById from "../state/doctor/getDoctorById"
 export const store = configureStore({
     reducer:{
         // Users slice
@@ -38,7 +39,8 @@ export const store = configureStore({
 
         // Doctor Slice
         addDoctorSlice,
-        getDoctorsSlice
+        getDoctorsSlice,
+        getDoctorById
         
         
         
