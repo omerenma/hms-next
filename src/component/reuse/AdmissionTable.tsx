@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
   Table,
   TableBody,
@@ -21,6 +21,7 @@ function MyTable({data, title}:Props) {
     const showForm = () => {
         setOpen(prev => !prev)
     }
+   
   return (
     <Box>
        {open ? <Form close={setOpen} title={title}/> : null}
@@ -42,7 +43,7 @@ function MyTable({data, title}:Props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row:any) => (
+            {!Array.isArray(data) ? "No data found" : data.map((row:any) => (
             <TableRow key={row.id}>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.sex}</TableCell>

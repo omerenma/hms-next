@@ -41,7 +41,7 @@ function BookAppointmentTable({data, title}:Props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row:any) => (
+            {!Array.isArray(data) ? "Loading data" : data.map((row:any) => (
             <TableRow key={row.id_doctor}>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.sex}</TableCell>

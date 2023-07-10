@@ -29,7 +29,7 @@ function MyTable( {data} : Props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row: any) => (
+            {!Array.isArray(data) ? "Loading" : data.map((row: any) => (
               <TableRow key={row.id}>
                 <TableCell>{row.patients_name}</TableCell>
                 <TableCell>{row.sex}</TableCell>

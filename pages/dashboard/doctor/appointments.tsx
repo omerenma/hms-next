@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSeletor } from "@/src/store/hooks";
 import { getAppointmentsByIdAction } from "@/src/state/appointments/getAppointmentByDoctorId";
 import {
   BarChart,
-  Bar,
+   Bar,
   Cell,
   XAxis,
   YAxis,
@@ -22,17 +22,18 @@ import DataTable from "@/src/component/reuse/DataGrid";
 const Appointments = () => {
   const dispatch = useAppDispatch();
   const { data } = useAppSeletor((state) => state.getAppointmentByDoctorId);
-  console.table(data)
-  const { id } = useAppSeletor((state) => state.getUserById);
+  const id  = useAppSeletor((state) => state.loginSlice.id);
+
+  // I need to get the id of the logged in doctor and pass it to along with the request
+
   useEffect(() => {
-    const id = localStorage.getItem("id");
     dispatch(getAppointmentsByIdAction(Number(id)));
   }, [dispatch, id]);
   return (
-    <Box sx={{marginTop:-2}}>
+    <Box>
       <Box component={Container}>
         <Grid container spacing={1.2}>
-          <Grid item xs={6} sm={6}>
+          <Grid item xs={12} sm={12}>
             <Box
               sx={{
                 height: 300,
@@ -46,14 +47,14 @@ const Appointments = () => {
               }}
             >
               <Grid container spacing={1.2}>
-                <Grid item xs={12} sm={12} md={12}>
-                  {/* <MyTable data={data} /> */}
-                  <DataTable data={data}/>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <MyTable data={data} />
+                  {/* <DataTable data={data}/> */}
                 </Grid>
               </Grid>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          {/* <Grid item xs={12} sm={6}>
             <Box
               sx={{
                 height: 300,
@@ -67,31 +68,10 @@ const Appointments = () => {
                 mozBoxShadow: "-5px -2px 8px 0px rgba(144,127,127,0.75)",
               }}
             >
-              <ResponsiveContainer>
-
-              <BarChart
-                width={600}
-                height={300}
-                data={data}
-                margin={{
-                  top: 50,
-                  right: 100,
-                  left: 0,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="patients_name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="appointment_date" fill="#8884d8" />
-                <Bar dataKey="uv" fill="#82ca9d" />
-              </BarChart>
-              </ResponsiveContainer>
             </Box>
-          </Grid>
+          </Grid> */}
         </Grid>
-        <Grid container spacing={1.2}>
+        {/* <Grid container spacing={1.2}>
           <Grid item xs={12} sm={6}>
             <Box
               sx={{
@@ -150,7 +130,7 @@ const Appointments = () => {
               <Typography>Container spacing 2</Typography>
             </Box>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Box>
     </Box>
   );

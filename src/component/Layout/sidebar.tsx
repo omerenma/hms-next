@@ -38,11 +38,11 @@ const adminMenuList = [
   { name: "Appointments", icon: <Bed />, link: "/dashboard/admin/appointments" },
   { name: "Users", icon: <People />, link: "/dashboard/admin/users" },
   { name: "Patients", icon: <Medication />, link: "/dashboard/admin/patients" },
-  {
-    name: "Reception",
-    icon: <HealthAndSafety />,
-    link: "/dashboard/admin/reception",
-  },
+  // {
+  //   name: "Reception",
+  //   icon: <HealthAndSafety />,
+  //   link: "/dashboard/admin/reception",
+  // },
   {
     name: "Doctors",
     icon: <LocalHospital />,
@@ -294,7 +294,7 @@ export const SideDrawer: FC<Props> = ({ open, handleClose, role }) => {
         </List>
         <Divider />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ display:"grid", placeItems:"center" }}>
         <DrawerHeader />
       </Box>
     </Box>

@@ -16,7 +16,7 @@ const Appointments = () => {
   return (
       <Box component={Container}>
           <Typography>Appointments</Typography>
-                  {/* <MyTable data={data} /> */}
+                  <MyTable data={data} />
                   {/* <DataTable data={data}/> */}
       </Box>
   );

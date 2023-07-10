@@ -37,6 +37,7 @@ interface LoginResponseType {
   name: string;
   email: string;
   role: string;
+  id:string
 }
 interface DoctorData {
   // name: string;
@@ -63,7 +64,6 @@ export class ApiRequest {
   async getUsers(uri: string) {
     try {
       const token = localStorage.getItem("token");
-      console.log("TOKEN :", token)
       const response = await axios.get(uri, {
         headers: {
           "Authorization": `Bearer ${token}`,

@@ -22,7 +22,7 @@ const initialState = {
     async (id:number) => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers(`${localUrl}/appointments/get/${id}`);
+        const response = await request.getUsers(`${localUrl}/appointment/get/${id}`);
         return response;
       } catch (error:any) {
         return error.message

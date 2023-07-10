@@ -19,14 +19,14 @@ const initialState = {
   // ACTION
 
   export const getAppointmentsAction = createAsyncThunk(
-    "getadmissions/action",
+    "getappointments/action",
     async () => {
       try {
         const request = new ApiRequest();
         const response:Appointments = await request.getUsers(`${localUrl}/appointment/get`);
         return response;
       } catch (error:any) {
-        return error.message
+        return error
       }
     }
   );

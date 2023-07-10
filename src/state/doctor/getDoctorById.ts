@@ -14,6 +14,7 @@ const initialState = {
     loading: false,
     success: false,
     data: [] ,
+    id:"",
     error: false,
     errorData:{}
   }
@@ -48,7 +49,8 @@ const initialState = {
       builder.addCase(getDoctorByIdAction.fulfilled, (state, {payload}) => {
         state.loading = false
         state.success = true
-         state.data = payload
+         state.data = payload,
+         state.id = payload.id_doctor
       })
       builder.addCase(getDoctorByIdAction.rejected, (state, action) => {
           state.error = true;
