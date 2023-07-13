@@ -19,6 +19,7 @@ const Verify = () => {
         fetch()
     }else{
         console.log('Something didnt go right')
+        return 
     }
    }, [])
   return (
