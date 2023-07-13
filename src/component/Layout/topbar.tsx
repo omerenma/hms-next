@@ -35,7 +35,7 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const Topbar: FC<Props> = ({ open, handleOpen }) => {
-  const userName = useAppSeletor(state => state.loginSlice.data)
+  // const userName = useAppSeletor(state => state.loginSlice.data)
   return (
     <AppBar position="fixed" open={open} sx={{ background: "transparent" }}>
       <Toolbar>
