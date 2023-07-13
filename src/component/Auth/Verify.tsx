@@ -2,7 +2,8 @@ import React , {useState, useEffect}from 'react'
 import {useSearchParams} from 'next/navigation'
 const Verify = () => {
     const searchParams = useSearchParams()
-    console.log(searchParams)
+    const query = searchParams.get('reference')
+    console.log(query, 'query params')
     useEffect(() => {
 
     }, [])
