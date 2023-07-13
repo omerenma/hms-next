@@ -10,7 +10,7 @@ const Verify = () => {
     const query = searchParams.get('reference')
     
    useEffect(() => {
-    const query = searchParams.get('reference')
+    // const query = searchParams.get('reference')
     if(query){
         const fetch = async () => {
             const data = await axios.post(url, query)
