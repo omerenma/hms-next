@@ -50,6 +50,9 @@ const Login = () => {
     });
   };
   return (
+    <Box>
+        <Typography sx={{ textAlign: "center", fontWeight:600 }}>Welcome to Precious clinic Hospital Management System</Typography>
+        <Typography sx={{ textAlign: "center", fontWeight:600 }}>Please login to proceed</Typography>
     <Box
       sx={{
         display: "flex",
@@ -60,8 +63,9 @@ const Login = () => {
         border: "1px solid #eee",
         padding: 10,
         margin:'0 auto'
-            }}
+      }}
     >
+     
       <Typography sx={{ textAlign: "center", fontWeight:600 }}>Login</Typography>
       <TextFields
         type="text"
@@ -77,10 +81,11 @@ const Login = () => {
         onChange={handlePassword}
         name={password}
         value={password}
-      />
+        />
       <Buttons submit={handleSubmit}>
         {loading === true ? "Loading..." : "Login"}
       </Buttons>
+    </Box>
     </Box>
   );
 };

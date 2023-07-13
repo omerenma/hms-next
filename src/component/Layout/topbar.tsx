@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { Toolbar, IconButton, Typography, Avatar, Box } from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import { Menu } from "@mui/icons-material";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import { useAppSeletor } from "@/src/store/hooks";
 
 type Props = {
   open: boolean;
@@ -34,6 +35,7 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const Topbar: FC<Props> = ({ open, handleOpen }) => {
+  const userName = useAppSeletor(state => state.loginSlice.data)
   return (
     <AppBar position="fixed" open={open} sx={{ background: "transparent" }}>
       <Toolbar>
@@ -51,8 +53,7 @@ const Topbar: FC<Props> = ({ open, handleOpen }) => {
         </IconButton>
         
           <Box>
-            <Typography sx={{ color: "#000" }}>
-            </Typography>
+           
           </Box>
           <Box>
             {/* <Avatar

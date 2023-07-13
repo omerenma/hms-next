@@ -7,8 +7,8 @@ import {
   TableHead,
   TableRow,
   Button,
+  Box
 } from "@material-ui/core";
-import { Container } from "@mui/material";
 import AppointmentRemarkForm from "../reuse/AppointmentRemarkForm";
 interface Props {
   data: {
@@ -27,17 +27,18 @@ function MyTable({ data }: Props) {
     // setId(id)
   };
   return (
-    <Container>
+    <TableContainer>
       {open ? <AppointmentRemarkForm close={setOpen} /> : null}
       <TableContainer>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell style={{ fontSize: 10 }}>Name</TableCell>
+              <TableCell style={{ fontSize: 10 }}>Patiens name</TableCell>
               <TableCell style={{ fontSize: 10 }}>Sex</TableCell>
               <TableCell style={{ fontSize: 10 }}>Email</TableCell>
               <TableCell style={{ fontSize: 10 }}>Hospital number</TableCell>
               <TableCell style={{ fontSize: 10 }}>Phone</TableCell>
+              <TableCell style={{ fontSize: 10 }}>Appointment date</TableCell>
               <TableCell style={{ fontSize: 10 }}>Remark</TableCell>
             </TableRow>
           </TableHead>
@@ -46,11 +47,12 @@ function MyTable({ data }: Props) {
               ? ""
               : data.map((row: any) => (
                   <TableRow key={row.id}>
-                    <TableCell>{row.patients_name}</TableCell>
+                    <TableCell>{row.name}</TableCell>
                     <TableCell>{row.sex}</TableCell>
                     <TableCell>{row.email}</TableCell>
                     <TableCell>{row.patients_id}</TableCell>
                     <TableCell>{row.phone_no}</TableCell>
+                    <TableCell>{row.appointment_date}</TableCell>
                     <TableCell>
                       <button
                         type="button"
@@ -72,7 +74,7 @@ function MyTable({ data }: Props) {
           </TableBody>
         </Table>
       </TableContainer>
-    </Container>
+    </TableContainer>
   );
 }
 

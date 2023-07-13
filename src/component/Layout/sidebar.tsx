@@ -38,11 +38,16 @@ const adminMenuList = [
   { name: "Appointments", icon: <Bed />, link: "/dashboard/admin/appointments" },
   { name: "Users", icon: <People />, link: "/dashboard/admin/users" },
   { name: "Patients", icon: <Medication />, link: "/dashboard/admin/patients" },
-  // {
-  //   name: "Reception",
-  //   icon: <HealthAndSafety />,
-  //   link: "/dashboard/admin/reception",
-  // },
+  {
+    name: "Patients history",
+    icon: <HealthAndSafety />,
+    link: "/dashboard/admin/history",
+  },
+  {
+    name: "Reports",
+    icon: <HealthAndSafety />,
+    link: "/dashboard/admin/reports",
+  },
   {
     name: "Doctors",
     icon: <LocalHospital />,

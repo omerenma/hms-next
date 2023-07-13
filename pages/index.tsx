@@ -7,7 +7,7 @@ import { Box, PaletteMode } from '@mui/material'
 import {useTheme, ThemeProvider, createTheme} from '@mui/material/styles'
 import {Brightness4, Brightness7} from '@mui/icons-material'
 import IconButton from '@mui/material/IconButton';
-
+import Subscription from '@/src/component/Auth/Subscription'
 const inter = Inter({ subsets: ['latin'] })
              
 
@@ -20,7 +20,8 @@ export default function Home() {
     
     
       <main className={`${styles.main} `}>
-        <Login/>
+        <Subscription />
+        {/* <Login/> */}
       </main>
   )
 }

@@ -107,3 +107,20 @@ a {
   }
 }
 
+.subcription-container{
+  display: flex;
+  width:400px;
+  height:400px;
+  flex-direction: column;
+  border: 1px solid #eee;
+}
+
+.paystack-btn {
+  background-color: limegreen;
+  width: 100%;
+  height:40px;
+  border: 1px solid #eee;
+  padding: 5;
+  cursor: pointer;
+  border-radius: 5px;
+}
