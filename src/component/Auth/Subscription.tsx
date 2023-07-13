@@ -46,8 +46,7 @@ const Subscription = () => {
     .then(response => {
         if(response.status === 200){
             setPaystackData(response.data.data.authorization_url);
-            window.location.href = paystackData
-            return
+            window.open(paystackData)
         }else{
             return "Loading..."
         }
