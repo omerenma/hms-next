@@ -8,20 +8,20 @@ const Verify = () => {
     const url = "http://locahost:5000/subscription/verify"
     const searchParams = useSearchParams()
     const query = searchParams.get('reference')
-   console.log(query, 'query')
-
-   const verify = () => {
-    fetch(url, {
-        method:""
-    })
-   }
+   
+    const verifyToken = async() => {
+       const response =  await axios.post(url, query)
+       console.log(response.data, 'verify token')
+       return setData(response.data)
+    }
+   
 
 
 
   return (
-    <div>
-      <h1>Verify subscription</h1>
-      {query}
+    <div style={{display:'grid', placeItems:'center'}}>
+      <h1>Verify your subscription</h1>
+      <button type="submit" onClick={verifyToken}>Click to verify</button>
       
     </div>
   )
