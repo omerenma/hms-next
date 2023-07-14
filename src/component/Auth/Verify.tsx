@@ -14,7 +14,7 @@ const Verify = () => {
 
     const verifyToken = async() => {
         console.log(reference, 'reference')
-       const response =  await axios.post(url, reference)
+       const response =  await axios.get(`${url}/${reference}`)
        console.log(response, 'response...')
        console.log(response.data, 'verify token')
        return setData(response.data)
