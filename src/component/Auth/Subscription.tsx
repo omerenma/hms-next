@@ -34,7 +34,7 @@ const Subscription = () => {
   };
 
    
-  const url = 'http://localhost:5000/subscription/initialize'
+  const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/initialize'
   const data = {email, name, phone, amount}
   const paystackPay = async(e:any) => {
     e.preventDefault()
