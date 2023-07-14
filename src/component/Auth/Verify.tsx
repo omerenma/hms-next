@@ -8,24 +8,21 @@ const Verify = () => {
     const url = "http://locahost:5000/subscription/verify"
     const searchParams = useSearchParams()
     const query = searchParams.get('reference')
-    
-   useEffect(() => {
-    // const query = searchParams.get('reference')
-    if(query){
-        const fetch = async () => {
-            const data = await axios.post(url, query)
-            console.log(data, 'verification')
-        }
-        fetch()
-    }else{
-        console.log('Something didnt go right')
-        return 
-    }
-   }, [])
+   console.log(query, 'query')
+
+   const verify = () => {
+    fetch(url, {
+        method:""
+    })
+   }
+
+
+
   return (
     <div>
       <h1>Verify subscription</h1>
-      <h2>{!params ? "Loading..." : params}</h2>
+      {query}
+      
     </div>
   )
 }
