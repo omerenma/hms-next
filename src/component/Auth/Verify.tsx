@@ -5,7 +5,7 @@ import {useSearchParams} from 'next/navigation'
 const Verify = () => {
     const [params, setParams] = useState("")
     const [data, setData] = useState("")
-    const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/initialize'
+    const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify'
     const searchParams = useSearchParams()
     const reference = searchParams.get('reference')
    
