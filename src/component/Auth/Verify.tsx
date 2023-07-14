@@ -7,13 +7,10 @@ const Verify = () => {
     const [data, setData] = useState("")
     const url = "https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify"
     const searchParams = useSearchParams()
-    const query = searchParams.get('reference')
+    const reference = searchParams.get('reference')
    
     const verifyToken = async() => {
-       const response =  await axios({
-        url:url,
-        data:JSON.stringify(query)
-       })
+       const response =  await axios(`${url}/${reference}`)
        console.log(response.data, 'verify token')
        return setData(response.data)
     }
