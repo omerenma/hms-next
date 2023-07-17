@@ -5,7 +5,7 @@ import {useSearchParams} from 'next/navigation'
 const Verify = () => {
     const [params, setParams] = useState("")
     const [data, setData] = useState("")
-    const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify'
+    const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify/'
     const searchParams = useSearchParams()
     const reference = searchParams.get('reference')
    
@@ -13,7 +13,7 @@ const Verify = () => {
 
 
     const verifyToken = async() => {
-       const response =  await axios.post(url, reference)
+       const response =  await axios.get(`${url}${reference}`)
        console.log(response.data, 'verify response data')
         return setData(response.data)
     }
