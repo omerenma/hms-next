@@ -13,19 +13,20 @@ const Verify = () => {
 
 
     const verifyToken = async() => {
-        console.log(reference, 'reference')
        const response =  await axios.get(`${url}/${reference}`)
-       console.log(response, 'response...')
-       console.log(response.data, 'verify token')
-       return setData(response.data)
+        setData(response.data)
     }
    
+
 
 
 
   return (
     <div style={{display:'grid', placeItems:'center'}}>
       <h1>Verify your subscription</h1>
+      <div>
+        {JSON.parse(data)}
+      </div>
       <button type="submit" onClick={verifyToken}>Click to verify</button>
       
     </div>
