@@ -2,23 +2,19 @@ import React , {useState, useEffect}from 'react'
 import axios from 'axios'
 import {useRouter} from 'next/router'
 
-import {useSearchParams} from 'next/navigation'
 const Verify = () => {
     const [params, setParams] = useState("")
     const [data, setData] = useState("")
 
     const router = useRouter()
     const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify'
-   
-    
-    
     
     useEffect(() => {
         const {reference} = router.query
         
             async function verifyPayment(args:string){
                 console.log(reference, 'query')
-                const data = JSON.stringify(reference)
+                const data = reference
                 await axios.post(url, data, {
                     headers:{
                         "X-requested-With":"XMLHttpRequest"
