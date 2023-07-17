@@ -11,12 +11,31 @@ const Verify = () => {
    
 
 
+        useEffect(() => {
+            const searchParams = useSearchParams()
+            const reference = searchParams.get('reference')
+            if(reference){
+                console.log(reference, 'my reference')
+               axios.get(`${url}/${reference}`)
+               .then(data => {
+                console.log(data.data, 'verify data')
+               })
+               .catch(err => {
+                console.log(err, 'verify err')
+               })
 
-    const verifyToken = async() => {
-       const response =  await axios.get(`${url}${reference}`)
-       console.log(response.data, 'verify response data')
-        return setData(response.data)
-    }
+            }else{
+                console.log(reference, 'reference')
+                return 
+            }
+
+        }, [] )
+
+    // const verifyToken = async() => {
+    //    const response =  await axios.get(`${url}${reference}`)
+    //    console.log(response.data, 'verify response data')
+    //     return setData(response.data)
+    // }
 
 
 
@@ -27,7 +46,7 @@ const Verify = () => {
       <div>
         {/* {JSON.parse(data)} */}
       </div>
-      <button type="submit" onClick={verifyToken}>Click to verify</button>
+      {/* <button type="submit" onClick={verifyToken}>Click to verify</button> */}
       
     </div>
   )
