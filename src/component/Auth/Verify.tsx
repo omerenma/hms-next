@@ -8,12 +8,12 @@ const Verify = () => {
     const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify/'
    
     const searchParams = useSearchParams()
-    const reference = searchParams.get('reference')
-   
-
-
-        useEffect(() => {
-          
+    
+    
+    
+    useEffect(() => {
+        const reference = searchParams.get('reference')
+        
             async function verifyPayment(args:string){
                 const data = {reference}
                 await axios.post(url, data, {
