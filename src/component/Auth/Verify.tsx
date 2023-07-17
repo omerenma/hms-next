@@ -16,13 +16,6 @@ const Verify = () => {
             const reference = searchParams.get('reference')
             if(reference){
                 console.log(reference, 'my reference')
-               axios.get(`${url}/${reference}`)
-               .then(data => {
-                console.log(data.data, 'verify data')
-               })
-               .catch(err => {
-                console.log(err, 'verify err')
-               })
 
             }else{
                 console.log(reference, 'reference')
