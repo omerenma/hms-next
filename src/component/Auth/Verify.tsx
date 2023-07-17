@@ -6,21 +6,26 @@ const Verify = () => {
     const [params, setParams] = useState("")
     const [data, setData] = useState("")
     const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify/'
+   
     const searchParams = useSearchParams()
     const reference = searchParams.get('reference')
    
 
 
         useEffect(() => {
-            const searchParams = useSearchParams()
-            const reference = searchParams.get('reference')
-            if(reference){
-                console.log(reference, 'my reference')
-
-            }else{
-                console.log(reference, 'reference')
-                return 
+          
+            async function verifyPayment(args:string){
+                const data = {reference}
+                await axios.post(url, data, {
+                    headers:{
+                        "X-requested-With":"XMLHttpRequest"
+                    }
+                })
+                .then(response => console.log(response, 'verify response'))
+                .catch(err => console.log(err, 'err response'))
             }
+            verifyPayment(reference as string)
+           
 
         }, [] )
 
