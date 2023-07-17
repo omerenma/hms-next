@@ -1,24 +1,23 @@
 import React , {useState, useEffect}from 'react'
 import axios from 'axios'
+import {useRouter} from 'next/router'
 
 import {useSearchParams} from 'next/navigation'
 const Verify = () => {
     const [params, setParams] = useState("")
     const [data, setData] = useState("")
-    const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify/'
+
+    const router = useRouter()
+    const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify'
    
-    const searchParams = useSearchParams()
     
     
     
     useEffect(() => {
-        const reference = searchParams.get('reference')
-        
+        const {reference} = router.query
         
             async function verifyPayment(args:string){
-                if(!reference){
-                    return 'Waiting for reference'
-                }
+                console.log(reference, 'query')
                 const data = JSON.stringify(reference)
                 await axios.post(url, data, {
                     headers:{
@@ -31,7 +30,7 @@ const Verify = () => {
             verifyPayment(reference as string)
            
 
-        }, [] )
+        }, [router.query] )
 
     // const verifyToken = async() => {
     //    const response =  await axios.get(`${url}${reference}`)
