@@ -40,13 +40,14 @@ const Subscription = () => {
     e.preventDefault()
     await axios.post(url, data, {
         headers:{
-            'X-Requested':'XMLHttpRequest'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer `
         }
     })
     .then(response => {
         if(response.status === 200){
             setPaystackData(response.data.data.authorization_url);
-            window.open(paystackData)
+            // window.open(paystackData)
         }else{
             return "Loading..."
         }
