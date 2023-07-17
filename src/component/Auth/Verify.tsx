@@ -16,7 +16,6 @@ const Verify = () => {
        const response =  await axios.get(`${url}/${reference}`)
         setData(response.data)
     }
-    verifyToken()
 
 
 
