@@ -14,8 +14,12 @@ const Verify = () => {
     useEffect(() => {
         const reference = searchParams.get('reference')
         
+        
             async function verifyPayment(args:string){
-                const data = {reference}
+                if(!reference){
+                    return 'Waiting for reference'
+                }
+                const data = JSON.stringify(reference)
                 await axios.post(url, data, {
                     headers:{
                         "X-requested-With":"XMLHttpRequest"
