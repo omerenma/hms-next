@@ -24,7 +24,7 @@ const Verify = () => {
     <div style={{display:'grid', placeItems:'center'}}>
       <h1>Verify your subscription</h1>
       <div>
-        {JSON.parse(data)}
+        {/* {JSON.parse(data)} */}
       </div>
       <button type="submit" onClick={verifyToken}>Click to verify</button>
       
