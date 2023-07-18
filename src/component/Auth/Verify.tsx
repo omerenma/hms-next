@@ -23,15 +23,16 @@ const Verify = () => {
             setData(response.data.data.data.data);
           }
         })
-        .catch((err) => console.log(err, "err response"));
+        .catch((err) =>  new Error(err));
     }
     verifyPayment(reference as string);
   }, [router.query]);
+  console.log(verificationMessage, 'message')
 
   return (
     <div style={{ display: "grid", placeItems: "center" }}>
       <h1>
-        {!verificationMessage ? "Loading" : verificationMessage}
+       
       </h1>
     </div>
   );
