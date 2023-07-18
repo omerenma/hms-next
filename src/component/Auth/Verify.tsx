@@ -31,7 +31,7 @@ const Verify = () => {
   return (
     <div style={{ display: "grid", placeItems: "center" }}>
       <h1>
-        {verificationMessage}
+        {!verificationMessage ? "Loading" : verificationMessage}
       </h1>
     </div>
   );
