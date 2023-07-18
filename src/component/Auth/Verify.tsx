@@ -5,6 +5,7 @@ import {useRouter} from 'next/router'
 const Verify = () => {
     const [params, setParams] = useState("")
     const [data, setData] = useState("")
+    const [verificationMessage, setverificationMessage] = useState("")
 
     const router = useRouter()
     const url = 'https://rymistc0jk.execute-api.us-east-1.amazonaws.com/dev/subscription/verify'
@@ -14,31 +15,27 @@ const Verify = () => {
         
             async function verifyPayment(args:string){
                 await axios.get(`${url}/${reference}`)
-                .then(response => console.log(response, 'verify response'))
+                .then(response =>{
+                    if(response.data.status === 200){
+                        setverificationMessage(response.data.data.message)
+                        setData(response.data.data.data.data)
+                    }
+
+                }
+                     )
                 .catch(err => console.log(err, 'err response'))
             }
             verifyPayment(reference as string)
            
 
         }, [router.query] )
-
-    // const verifyToken = async() => {
-    //    const response =  await axios.get(`${url}${reference}`)
-    //    console.log(response.data, 'verify response data')
-    //     return setData(response.data)
-    // }
-
+   
 
 
 
   return (
     <div style={{display:'grid', placeItems:'center'}}>
-      <h1>Verify your subscription</h1>
-      <div>
-        {/* {JSON.parse(data)} */}
-      </div>
-      {/* <button type="submit" onClick={verifyToken}>Click to verify</button> */}
-      
+      <h1>{verificationMessage === 'Subscription verified' ? <h1>Subscription successfull</h1>: "Subscription failed please try again"}</h1>
     </div>
   )
 }
