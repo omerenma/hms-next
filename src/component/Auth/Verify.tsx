@@ -14,7 +14,7 @@ const Verify = () => {
         
             async function verifyPayment(args:string){
                 const data = reference
-                await axios.post(url, data, {
+                await axios.post(url, JSON.stringify(data), {
                     headers:{
                         "Content-Type":"application/json"
                     }
