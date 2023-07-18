@@ -13,12 +13,7 @@ const Verify = () => {
         const {reference} = router.query
         
             async function verifyPayment(args:string){
-                const data = reference
-                await axios.post(url, JSON.stringify(data), {
-                    headers:{
-                        "Content-Type":"application/json"
-                    }
-                })
+                await axios.get(`${url}/${reference}`)
                 .then(response => console.log(response, 'verify response'))
                 .catch(err => console.log(err, 'err response'))
             }
