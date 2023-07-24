@@ -18,6 +18,7 @@ const Verify = () => {
       await axios
         .get(`${url}/${reference}`)
         .then((response) => {
+            console.log("RESPONSE :", response.data)
           if (response.data.status === 200) {
             setverificationMessage(response.data.message);
             setData(response.data.data.data.data);
@@ -27,13 +28,11 @@ const Verify = () => {
     }
     verifyPayment(reference as string);
   }, [router.query]);
-  console.log(verificationMessage, 'message')
 
   return (
     <div style={{ display: "grid", placeItems: "center" }}>
-      <h1>
-       
-      </h1>
+      <h1>Add bussiness</h1>
+
     </div>
   );
 };
