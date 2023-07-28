@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { redirect } from "next/navigation";
 
 const Verify = () => {
   const [params, setParams] = useState("");
@@ -33,11 +34,7 @@ const Verify = () => {
     <div style={{ display: "grid", placeItems: "center" }}>
       
       <p>Verification successfull</p>
-      {
-        window.setTimeout(() => {
-          window.location.href = '/login'
-        }, 5000)
-      }
+    
 
     </div>
   );
