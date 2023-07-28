@@ -23,6 +23,8 @@ const Verify = () => {
           if (response.data.status === 200) {
             setverificationMessage(response.data.message);
             setData(response.data.data.data.data);
+
+            redirect('/login')
           }
         })
         .catch((err) =>  new Error(err));
