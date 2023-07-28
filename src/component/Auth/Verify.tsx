@@ -18,7 +18,7 @@ const Verify = () => {
       await axios
         .get(`${url}/${reference}`)
         .then((response) => {
-            console.log("RESPONSE :", response.data)
+            console.log("VERIFY SUBSCRIPTION :", response.data)
           if (response.data.status === 200) {
             setverificationMessage(response.data.message);
             setData(response.data.data.data.data);
