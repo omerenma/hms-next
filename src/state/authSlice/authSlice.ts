@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiRequest } from "../../services/fetch";
-import { baseUrl , localUrl} from "../adminSlice/url/baseUrl";
+import { baseUrl , localUrl} from "../url/baseUrl";
 interface LoginState {
   loading: boolean;
   success: boolean;
@@ -42,7 +42,7 @@ export const loginAction = createAsyncThunk(
   async (data: Data, thunkApi) => {
     try {
       const request = new ApiRequest();
-      const response = await request.login(
+      const response = await request.account_login(
         `${localUrl}/users/signin`,
         data
       );
@@ -84,27 +84,6 @@ export const loginAction = createAsyncThunk(
         state.error = true;
         state.errorData = payload
     })
-    // builder.addCase(loginAction.pending, (state, action) => {
-    //     state.loading = true
-    //     state.success = false
-        
-    // })
-    // .addCase(loginAction.fulfilled, (state, action:PayloadAction<LoginResponse>) => {
-    //     state.loading = false
-    //     // state.success = true
-    //     state.data = action.payload
-    //     state.token = action.payload && action.payload.token
-    //     state.role = action.payload && action.payload.role
-
-    // })
-    // .addCase(loginAction.rejected, (state, action:PayloadAction<any>) => {
-    //   state.loading = false
-    //   state.success = false
-    //     state.error = true;
-    //     state.data = {};
-    //     state.errorData = action.payload
-
-    // })
   },
 });
 

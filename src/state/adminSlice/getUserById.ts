@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
 import { useAppSeletor } from '@/src/store/hooks';
-import { baseUrl , localUrl} from './url/baseUrl';
+import { baseUrl , localUrl} from '../url/baseUrl';
 
 interface AdminState {
     loading: boolean;

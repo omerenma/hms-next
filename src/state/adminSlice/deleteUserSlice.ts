@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { baseUrl, localUrl } from './url/baseUrl';
+import { baseUrl, localUrl } from '../url/baseUrl';
 interface AdminState {
     loading: boolean;
     success: boolean;

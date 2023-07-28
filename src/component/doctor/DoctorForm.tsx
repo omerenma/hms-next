@@ -27,6 +27,7 @@ const Form = ({ close, title }: Props) => {
     dob: "",
     specialty: ""
   });
+  
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,

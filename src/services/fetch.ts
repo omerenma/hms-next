@@ -39,6 +39,25 @@ interface LoginResponseType {
   role: string;
   id:string
 }
+
+interface AddBusiness {
+  name:string;
+  address:string;
+  phone:string;
+  email:string;
+  password:string;
+}
+
+interface AddBusinessResponseType {
+  message: string;
+  data:{
+    name:string;
+    address:string;
+    phone:string;
+    email:string;
+    password:string;
+  }
+}
 interface DoctorData {
   // name: string;
   email: string;
@@ -50,12 +69,12 @@ interface DoctorData {
 export class ApiRequest {
   constructor() {}
 
-  async login(uri: string, data:LoginData
-    ): Promise<LoginResponseType> {
+  async account_login(uri: string, data:LoginData | AddBusiness): Promise<LoginResponseType> {
       try {
-        const response = await axios.post(uri, data, {
-        });
-        return response.data;
+       
+        const response = await axios.post(uri, data);
+        
+        return response.data
       } catch (error: any) {
         return error.response;
       }

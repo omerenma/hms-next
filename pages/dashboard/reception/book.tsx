@@ -1,6 +1,6 @@
 
 import React, { ReactElement , useEffect} from 'react'
-import Layout from '@/src/component/Layout/layout'
+import Layout from '@/src/component/Website/layout'
 import { Container } from '@mui/material'
 import { useAppDispatch, useAppSeletor } from '@/src/store/hooks'
 import { getAppointmentsAction } from '@/src/state/appointments/getAppointments'

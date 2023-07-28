@@ -1,7 +1,7 @@
 
 import React, {ReactElement} from 'react'
 import { Container } from '@mui/material'
-import Layout from '@/src/component/Layout/layout'
+import Layout from '@/src/component/Website/layout'
 
 const Reception = () => {
   return (

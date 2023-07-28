@@ -1,5 +1,5 @@
 
-import Layout from "@/src/component/Layout/layout";
+import Layout from "@/src/component/Website/layout";
 import React, { ReactElement, useEffect } from "react";
 import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 import MyTable from "@/src/component/reuse/AdminAppointmentTable";

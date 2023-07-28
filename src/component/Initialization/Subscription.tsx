@@ -14,9 +14,7 @@ const Subscription = () => {
             authorization_url:string;
             reference:string
         }
-    }
-          
-     
+    }  
 }
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -46,8 +44,9 @@ const Subscription = () => {
     })
     .then(response => {
         if(response.status === 200){
+          console.log(response, 'response')
             setPaystackData(response.data.data.authorization_url);
-            // window.open(paystackData)
+            window.open(paystackData)
         }else{
             return "Loading..."
         }
@@ -85,13 +84,14 @@ const Subscription = () => {
 
     <Box
     sx={{
-        display: "flex",
+        display: "flext",
         width:"400px",
         height:300,
         flexDirection: "column",
         border: "1px solid #eee",
         padding:2,
-        borderRadius:3
+        borderRadius:3,
+
     }}
     >
       

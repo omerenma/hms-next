@@ -1,6 +1,6 @@
 
 import React, { ReactElement } from 'react'
-import Layout from '@/src/component/Layout/layout'
+import Layout from '@/src/component/Website/layout'
 import { Container } from '@mui/material'
 
 const Home = () => {

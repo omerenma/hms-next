@@ -1,6 +1,6 @@
 
 import React, { useState, ReactElement } from "react";
-import Layout from "@/src/component/Layout/layout";
+import Layout from "@/src/component/Website/layout";
 import { Container, SelectChangeEvent, Typography } from "@mui/material";
 import { TextFields, SelectInput, Buttons } from "@/src/component/reuse";
 import { addAdminAction } from "@/src/state/adminSlice/adminSlice";
@@ -47,6 +47,7 @@ const Adduser = () => {
     };
     dispatch(addAdminAction(data));
   };
+  
   return (
     <div>
       {success && <SnackBar message={message} />}

@@ -1,7 +1,7 @@
 
 import React, {ReactElement, useEffect} from 'react'
 import { Container, } from '@mui/material'
-import Layout from '@/src/component/Layout/layout'
+import Layout from '@/src/component/Website/layout'
 import Table from '../../../src/component/reuse/Table'
 import { getUsersAction } from '@/src/state/adminSlice/getUsersSlice'
 import { useAppDispatch, useAppSeletor } from '@/src/store/hooks'

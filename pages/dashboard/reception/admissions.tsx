@@ -1,5 +1,5 @@
 import React, { ReactElement , useEffect, useState} from 'react'
-import Layout from '@/src/component/Layout/layout'
+import Layout from '@/src/component/Website/layout'
 import MyTable from '@/src/component/reuse/AdmissionTable'
 import { getAdmissionsAction } from '@/src/state/admissionSlice/getAdmissionsSlice'
 import { useAppDispatch } from '@/src/store/hooks'

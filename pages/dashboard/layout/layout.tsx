@@ -1,6 +1,6 @@
 
 import React, {ReactElement, useEffect, useState} from 'react'
-import Layout from '@/src/component/Layout/layout'
+import Layout from '@/src/component/Website/layout'
 
 type Props = {
     pages:ReactElement
