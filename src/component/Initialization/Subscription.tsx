@@ -44,7 +44,6 @@ const Subscription = () => {
     })
     .then(response => {
         if(response.status === 200){
-          console.log(response, 'response')
             setPaystackData(response.data.data.authorization_url);
             window.open(paystackData)
         }else{
