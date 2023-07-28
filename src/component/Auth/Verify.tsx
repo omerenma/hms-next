@@ -31,7 +31,13 @@ const Verify = () => {
 
   return (
     <div style={{ display: "grid", placeItems: "center" }}>
-      <h1>Add bussiness</h1>
+      
+      <p>Verification successfull</p>
+      {
+        window.setTimeout(() => {
+          window.location.href = '/login'
+        }, 5000)
+      }
 
     </div>
   );
