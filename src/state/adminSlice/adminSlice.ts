@@ -22,6 +22,7 @@ const initialState = {
   }
 
   interface AdminData {
+    business_id:string;
     name:string;
     email: string;
     password: string;
@@ -35,10 +36,7 @@ const initialState = {
     async (data: AdminData, thunkApi) => {
       try {
         const request = new ApiRequest();
-        const response = await request.post(
-          `${localUrl}/users/register`,
-          data
-        );
+        const response = await request.post(`${localUrl}/users/register`, data);
         
         return response;
       } catch (error:any) {

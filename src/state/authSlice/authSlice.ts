@@ -18,7 +18,8 @@ const initialState = {
   role:"",
   error: false,
   errorData:{},
-  id:""
+  id:"",
+  business_id:""
   
 } 
 
@@ -47,6 +48,7 @@ export const loginAction = createAsyncThunk(
         data
       );
       localStorage.setItem('token', response && response.token)
+      localStorage.setItem('business_id', response && response.business_id)
       return response;
     } catch (error:any) {
       //  return error.message
@@ -79,6 +81,7 @@ export const loginAction = createAsyncThunk(
        state.token = payload && payload.token
        state.role = payload && payload.role,
        state.id = payload && payload.id as string
+       state.business_id = payload && payload.business_id
     })
     builder.addCase(loginAction.rejected, (state, payload) => {
         state.error = true;

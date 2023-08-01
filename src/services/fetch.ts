@@ -2,9 +2,11 @@ import axios, { AxiosError } from "axios";
 
 interface BodyType {
   id?: string;
+  business_id:string;
   name: string;
   email: string;
   role: string;
+  password:string;
 }
 interface LoginData {
   email:string;
@@ -38,6 +40,7 @@ interface LoginResponseType {
   email: string;
   role: string;
   id:string
+  business_id:string
 }
 
 interface AddBusiness {
