@@ -1,7 +1,6 @@
 import axios, { AxiosError } from "axios";
 
 interface BodyType {
-  id?: string;
   business_id:string;
   name: string;
   email: string;
@@ -68,6 +67,12 @@ interface DoctorData {
   phone_no: string;
   dob: string;
   specialty: string;
+}
+interface EditData {
+  id:string;
+name:string;
+email: string;
+role:string;
 }
 export class ApiRequest {
   constructor() {}
@@ -139,7 +144,7 @@ export class ApiRequest {
       return error.message;
     }
   }
-  async edit(uri: string, data: BodyType) {
+  async edit(uri: string, data: EditData) {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(uri, data, {

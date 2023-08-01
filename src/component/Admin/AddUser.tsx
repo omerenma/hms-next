@@ -22,6 +22,8 @@ const Adduser = () => {
   const { loading,  message, success } = useAppSeletor(
     (state) => state.addAdminSlice
   );
+  const id:any = localStorage.getItem('business_id')
+
 
   const [role, setRole] = useState("");
   const [value, setData] = useState({
@@ -40,6 +42,7 @@ const Adduser = () => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const data = {
+      business_id:id,
       name: value.name,
       email: value.email,
       password: value.password,

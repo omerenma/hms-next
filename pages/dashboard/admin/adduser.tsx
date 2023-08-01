@@ -19,9 +19,10 @@ const item = [
 ];
 const Adduser = () => {
   const dispatch = useAppDispatch();
-  // const  business_id   = useAppSeletor( (state) => state.loginSlice.business_id);
+  //  const id   = useAppSeletor( (state) => state.loginSlice.business_id);
   const { loading,  message, success } = useAppSeletor( (state) => state.addAdminSlice);
-  const business_id:any = localStorage.getItem('business_id')
+  // cls
+  const id:any = localStorage.getItem('business_id')
   
   const [role, setRole] = useState("");
   const [value, setData] = useState({
@@ -41,11 +42,11 @@ const Adduser = () => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const data = {
-      business_id:business_id,
       name: value.name,
       email: value.email,
       password: value.password,
       role: role,
+      business_id:id
     };
     dispatch(addAdminAction(data));
   };

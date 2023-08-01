@@ -14,6 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 const ColorModeContext = React.createContext({toggleColorMode: () => {}})
 
 export default function Home() {
+ 
 
   return (
     <div className='home-container'>
