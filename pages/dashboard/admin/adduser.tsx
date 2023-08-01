@@ -41,7 +41,7 @@ const Adduser = () => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const data = {
-      business_id,
+      business_id:business_id,
       name: value.name,
       email: value.email,
       password: value.password,

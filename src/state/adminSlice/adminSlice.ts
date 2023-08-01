@@ -22,7 +22,7 @@ const initialState = {
   }
 
   interface AdminData {
-    business_id:string;
+    business_id:any;
     name:string;
     email: string;
     password: string;
