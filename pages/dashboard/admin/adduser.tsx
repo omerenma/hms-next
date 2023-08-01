@@ -19,10 +19,10 @@ const item = [
 ];
 const Adduser = () => {
   const dispatch = useAppDispatch();
-  //  const id   = useAppSeletor( (state) => state.loginSlice.business_id);
+  const id   = useAppSeletor( (state) => state.loginSlice.business_id);
   const { loading,  message, success } = useAppSeletor( (state) => state.addAdminSlice);
   // cls
-  const id:any = localStorage.getItem('business_id')
+  // const id:any = localStorage.getItem('business_id')
   
   const [role, setRole] = useState("");
   const [value, setData] = useState({

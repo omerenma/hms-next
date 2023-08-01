@@ -1,4 +1,4 @@
-
+'use client'
 import React, { useState, ReactElement } from "react";
 import Layout from "@/src/component/Website/layout";
 import { Container, SelectChangeEvent, Typography } from "@mui/material";
@@ -22,7 +22,8 @@ const Adduser = () => {
   const { loading,  message, success } = useAppSeletor(
     (state) => state.addAdminSlice
   );
-  const id:any = localStorage.getItem('business_id')
+  // const id:any = localStorage.getItem('business_id')
+  const id   = useAppSeletor( (state) => state.loginSlice.business_id);
 
 
   const [role, setRole] = useState("");
