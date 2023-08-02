@@ -2,19 +2,11 @@ import React from "react";
 import {motion} from 'framer-motion'
 const HeaderComponent = () => {
   return (
-    <motion.div className="header-component"
-        variants={{
-          hidden:{opacity:0, y:75},
-          visible:{opacity:1, y:0}
-        }}
-        transition={{ease:"easeOut", duration:2}}
-        initial="hidden"
-        animate="visible"
-    >
-      <h1
-      >Automate it. Build it. Grow it.</h1>
-      <p>Automate your entire daily hospital routing just with few clicks</p>
-    </motion.div>
+    <div className="header-component">
+      <h1>Get automated!</h1>
+      <h2>maximise your workplace experience with K-HMS</h2>
+      <p>Your all-in-one hospital management automation solution streamlined towards maximising business growth.</p>
+    </div>
   );
 };
 
