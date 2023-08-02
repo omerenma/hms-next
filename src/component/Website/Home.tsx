@@ -10,7 +10,7 @@ const HomePage = () => {
     <div style={{width:"100%"}}>
         <Navbar/>
         <Header />
-    <div className='home-container'>
+    <div className='content-container'>
         <div style={{maxWidth:1200}}>
         <Description/>
         <Subscription/>
