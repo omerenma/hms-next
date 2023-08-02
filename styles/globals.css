@@ -143,7 +143,7 @@ a {
   box-shadow: rgba(0, 12, 43, 0.05) 0px 4px 8px;
   position: sticky;
   top: 0px;
-  z-index: 9999;
+  z-index: 1;
 }
 .navigation {
   width: 100%;
@@ -284,4 +284,15 @@ body::-webkit-scrollbar {
   background-color: #0d0d0d;
   height: 30vh;
   border-top-left-radius: -200px;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgb(106, 79, 79);
+  transform-origin: 0%;
+  z-index: 9999;
 }

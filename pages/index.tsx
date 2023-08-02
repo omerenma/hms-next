@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, {useMemo, useState} from 'react'
+import {motion, useScroll} from 'framer-motion'
 import { Inter, Roboto, Poppins } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Login from '@/src/component/Auth/Login'
@@ -13,11 +14,20 @@ import HomePage from '@/src/component/Website/Home'
 const inter = Inter({ subsets: ['latin'] })
 const ColorModeContext = React.createContext({toggleColorMode: () => {}})
 export default function Home() {
+  const {scrollYProgress} = useScroll()
 
   return (
+    <>
+    <motion.div
+    className='progress-bar'
+    style={{scaleX: scrollYProgress}}
+    />
+
+    
     <div className='home-container'>
       <HomePage/>
     </div>
+    </>
       // <main className={`${styles.main} `}>
       // </main>
   )
