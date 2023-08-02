@@ -12,13 +12,13 @@ import Navbar from '@/src/component/Website/Navbar/Navbar'
 import HomePage from '@/src/component/Website/Home'
 const inter = Inter({ subsets: ['latin'] })
 const ColorModeContext = React.createContext({toggleColorMode: () => {}})
-
+import {motion, useScroll} from 'framer-motion'
 export default function Home() {
- 
+  const {scrollYProgress} = useScroll()
 
   return (
     <div className='home-container'>
-
+      <motion.div style={{scaleY: scrollYProgress}} />
       <HomePage/>
     </div>
       // <main className={`${styles.main} `}>

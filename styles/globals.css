@@ -174,7 +174,7 @@ a {
 .home-header {
   position:relative;
   background-color: #0069FF;
-  height: 75vh;
+  height: 100vh;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   display: grid;
@@ -216,7 +216,8 @@ width: 100%;
     padding: 24px;
     width: 25%;
     height: 300px;
-
+    display: flex;
+    justify-content: space-between;
     
 }
 

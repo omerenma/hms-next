@@ -4,6 +4,7 @@ import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import Description from './Description'
 import Subscription from './Subscription'
+
 const HomePage = () => {
   return (
     <div className='home-containter'>
@@ -12,7 +13,6 @@ const HomePage = () => {
         <Description/>
         <Subscription/>
         <Footer />
-      
     </div>
   )
 }

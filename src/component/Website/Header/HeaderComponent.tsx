@@ -1,11 +1,20 @@
 import React from "react";
-import ScrollAnimation from "react-animate-on-scroll";
+import {motion} from 'framer-motion'
 const HeaderComponent = () => {
   return (
-    <div className="header-component">
-      <h1>Automate it. Build it. Grow it.</h1>
+    <motion.div className="header-component"
+        variants={{
+          hidden:{opacity:0, y:75},
+          visible:{opacity:1, y:0}
+        }}
+        transition={{ease:"easeOut", duration:2}}
+        initial="hidden"
+        animate="visible"
+    >
+      <h1
+      >Automate it. Build it. Grow it.</h1>
       <p>Automate your entire daily hospital routing just with few clicks</p>
-    </div>
+    </motion.div>
   );
 };
 
