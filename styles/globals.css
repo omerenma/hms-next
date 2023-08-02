@@ -292,7 +292,7 @@ body::-webkit-scrollbar {
   left: 0;
   right: 0;
   height: 3px;
-  background: rgb(106, 79, 79);
+  background: purple;
   transform-origin: 0%;
   z-index: 9999;
 }
