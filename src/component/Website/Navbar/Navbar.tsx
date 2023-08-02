@@ -3,8 +3,8 @@ import { links } from "../Link";
 import Link from "next/link";
 const Navbar = () => {
   return (
-    <div className="container-nav">
-    <div className="navigation">
+    <div className="container-nav" >
+    <div className="navigation" >
       <div className="left-nav">
         <Link href={"product"} className="nav-item">Product</Link>
         <Link href={"product"} className="nav-item">Solution</Link>
