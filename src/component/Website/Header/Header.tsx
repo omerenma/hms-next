@@ -1,12 +1,15 @@
 'use client'
 import React from 'react'
 import HeaderComponent from './HeaderComponent'
-import Image from 'next/image'
-import Ima from '../../../assets/national-cancer-institute-NFvdKIhxYlU-unsplash.jpg'
+import {motion} from 'framer-motion'
 const Header = () => {
   return (
     <div className='home-header'>
-      <HeaderComponent />
+      <motion.circle 
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      />
+      {/* <HeaderComponent /> */}
     </div>
   )
 }

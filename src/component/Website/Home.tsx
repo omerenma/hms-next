@@ -7,14 +7,18 @@ import Subscription from './Subscription'
 
 const HomePage = () => {
   return (
-    <div className='home-containter'>
+    <div style={{width:"100%"}}>
         <Navbar/>
         <Header />
+    <div className='home-container'>
+        <div style={{maxWidth:1200}}>
         <Description/>
         <Subscription/>
+        </div>
+    </div>
         <Footer />
     </div>
-  )
+    )
 }
 
 export default HomePage
