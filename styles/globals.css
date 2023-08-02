@@ -177,12 +177,16 @@ a {
 }
 .home-header {
   position:relative;
-  background-color: #0069FF;
+  /* background-color: #0069FF; */
   height: 100vh;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   display: grid;
   place-items: center;
+  background-image: url('../src/assets/Shutterstock_1677798643.png');
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
 }
 .header-component{
   position: absolute;

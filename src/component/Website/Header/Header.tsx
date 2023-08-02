@@ -9,7 +9,7 @@ const Header = () => {
       initial={{ pathLength: 0 }}
       animate={{ pathLength: 1 }}
       />
-      {/* <HeaderComponent /> */}
+      <HeaderComponent />
     </div>
   )
 }
