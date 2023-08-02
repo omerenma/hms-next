@@ -238,6 +238,7 @@ a {
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   column-gap: 3px;
 }
@@ -250,7 +251,12 @@ a {
   width: 25%;
   height: 300px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.home-header-description-card-p{
+font-weight: bolder;
 }
 
 body::-webkit-scrollbar {
