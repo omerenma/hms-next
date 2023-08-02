@@ -106,10 +106,10 @@ a {
   }
 }
 
-.subcription-container{
+.subcription-container {
   display: flex;
-  width:400px;
-  height:400px;
+  width: 400px;
+  height: 400px;
   flex-direction: column;
   border: 1px solid #eee;
 }
@@ -117,7 +117,7 @@ a {
 .paystack-btn {
   background-color: limegreen;
   width: 100%;
-  height:40px;
+  height: 40px;
   border: 1px solid #eee;
   padding: 5;
   cursor: pointer;
@@ -141,9 +141,9 @@ a {
   place-items: center;
   width: 100%;
   box-shadow: rgba(0, 12, 43, 0.05) 0px 4px 8px;
-    position: sticky;
-    top: 0px;
-    z-index: 9999
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
 }
 .navigation {
   width: 100%;
@@ -157,8 +157,8 @@ a {
   justify-content: space-around;
   gap: 2px;
 }
-.nav-item{
-  color: #24335A;
+.nav-item {
+  color: #24335a;
   font-weight: 600;
   font-size: medium;
   width: 100px;
@@ -166,21 +166,21 @@ a {
   border-radius: 5px;
   text-align: center;
 }
-.nav-item:hover{
+.nav-item:hover {
   background: #d3d7df;
   width: 100px;
 }
-.signup{
-  background-color: #0069FF;
-  color:#fff;
+.signup {
+  background-color: #0069ff;
+  color: #fff;
 }
-.right-nav{
+.right-nav {
   width: 15%;
   display: flex;
   justify-content: space-between;
 }
 .home-header {
-  position:relative;
+  position: relative;
   height: 100vh;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -190,9 +190,8 @@ a {
   justify-content: space-around;
   /* align-items: center; */
   width: 100%;
- 
 }
-.home-header-right{
+.home-header-right {
   /* background-color: purple; */
   flex: 1.5;
   width: 100%;
@@ -200,28 +199,26 @@ a {
   justify-content: center;
   align-items: center;
 }
-.home-header-left{
+.home-header-left {
   background-color: pink;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.50;
+  opacity: 0.5;
 }
-.header-component{
+.header-component {
   position: absolute;
   top: 20%;
   /* height: 400px; */
   max-width: 800px;
-
-
 }
 .header-component h1 {
-  font-size:50px;
+  font-size: 50px;
   text-align: left;
 }
 .header-component h2 {
-  font-size:40px;
+  font-size: 40px;
   text-align: left;
   font-weight: bolder;
 }
@@ -238,8 +235,7 @@ a {
   align-items: center;
 }
 .home-header-description {
-
-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -248,18 +244,16 @@ width: 100%;
 
 .home-header-description-card {
   border-radius: 24px;
-    box-shadow: rgba(11, 43, 158, 0.15) 0px 6px 20px -6px;
-    margin: 1%;
-    padding: 24px;
-    width: 25%;
-    height: 300px;
-    display: flex;
-    justify-content: space-between;
-    
+  box-shadow: rgba(11, 43, 158, 0.15) 0px 6px 20px -6px;
+  margin: 1%;
+  padding: 24px;
+  width: 25%;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
 }
 
-body::-webkit-scrollbar{
-
+body::-webkit-scrollbar {
 }
 .home-subscription {
   margin-top: 40px;
@@ -271,14 +265,14 @@ body::-webkit-scrollbar{
   justify-content: center;
   align-items: center;
 }
-.subscription-description{
+.subscription-description {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   column-gap: 3px;
 }
-.home-subscription-card{
+.home-subscription-card {
   border-radius: 24px;
   box-shadow: rgba(11, 43, 158, 0.15) 0px 6px 20px -6px;
   margin: 1%;
@@ -286,8 +280,8 @@ body::-webkit-scrollbar{
   width: 25%;
   height: 450px;
 }
-  .home-footer {
-    background-color: #0D0D0D;
-    height: 30vh;
-    border-top-left-radius: -200px;
-  }
+.home-footer {
+  background-color: #0d0d0d;
+  height: 30vh;
+  border-top-left-radius: -200px;
+}

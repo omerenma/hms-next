@@ -44,6 +44,7 @@
     "react": "18.2.0",
     "react-animate-on-scroll": "^2.1.7",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "react-image-carousel-viewer": "^0.0.11",
     "react-paystack": "^4.0.3",
     "react-pro-sidebar": "^1.1.0-alpha.1",
