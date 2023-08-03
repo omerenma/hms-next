@@ -24,11 +24,29 @@ const HeaderComponent = () => {
       >
         Get automated!
       </motion.h1>
-      <h2>maximise your daily hospital routine experience with K-HMS</h2>
-      <p>
+      <motion.h2
+       ref={ref}
+       variants={{
+         hidden: { opacity: 0, y: 75 },
+         visible: { opacity: 1, y: 0 },
+       }}
+       initial="hidden"
+       animate={mainControls}
+       transition={{ duration: 0.5, delay: 0.25 }}
+      >maximise your daily hospital routine experience with K-HMS</motion.h2>
+      <motion.p
+       ref={ref}
+       variants={{
+         hidden: { opacity: 0, y: 75 },
+         visible: { opacity: 1, y: 0 },
+       }}
+       initial="hidden"
+       animate={mainControls}
+       transition={{ duration: 0.5, delay: 0.25 }}
+      >
         Your all-in-one hospital management automation solution streamlined
         towards maximising business growth.
-      </p>
+      </motion.p>
     </div>
   );
 };

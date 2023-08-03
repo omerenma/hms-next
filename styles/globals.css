@@ -359,5 +359,22 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
   }
+  .home-header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header-component h1 {
+    text-align: center;
+  }
+  .header-component h2 {
+    text-align: center;
+    font-size: 15px;
+  }
+  .header-component p{
+    text-align: center;
+  }
  
 }
