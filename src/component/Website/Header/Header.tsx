@@ -2,7 +2,7 @@
 import React from "react";
 import HeaderComponent from "./HeaderComponent";
 import { motion, animate } from "framer-motion";
-import HeaderImage from "../../../assets/photo-1551076805-e1869033e561.avif";
+import HeaderImage from "../../../assets/Masimo_Podcast Image-Hospital Automation Image_0.jpg";
 import Image from "next/image";
 const Header = () => {
   return (

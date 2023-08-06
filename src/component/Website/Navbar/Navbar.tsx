@@ -76,17 +76,20 @@ const Navbar = () => {
           <CloseIcon className="hamburger-icon" />
         )}
       </div>
-      <nav ref={scope}  className={!isOpen ? "container-nav" : ""}>
-        <nav  className="navigation">
+      <nav    className={!isOpen ? "container-nav" : ""}>
+        <nav ref={scope}   className="navigation">
           <div className="left-nav">
-            <Link href={"product"} className="nav-item">
-              Product
+          <Link href={"/"} className="nav-item">
+              Home
             </Link>
-            <Link href={"product"} className="nav-item">
+            <Link href={"about"} className="nav-item">
+              About
+            </Link>
+            <Link href={"solution"} className="nav-item">
               Solution
             </Link>
-            <Link href={"product"} className="nav-item">
-              Business
+            <Link href={"contact"} className="nav-item">
+              Contact
             </Link>
           </div>
           <div className="right-nav">
