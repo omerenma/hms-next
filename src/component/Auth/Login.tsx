@@ -51,8 +51,8 @@ const Login = () => {
   };
   return (
     <Box>
-        <Typography sx={{ textAlign: "center", fontWeight:600 }}>Welcome to Precious clinic Hospital Management System</Typography>
-        <Typography sx={{ textAlign: "center", fontWeight:600 }}>Please login to proceed</Typography>
+        {/* <Typography sx={{ textAlign: "center", fontWeight:600 }}>Welcome to Precious clinic Hospital Management System</Typography>
+        <Typography sx={{ textAlign: "center", fontWeight:600 }}>Please login to proceed</Typography> */}
     <Box
       sx={{
         display: "flex",
