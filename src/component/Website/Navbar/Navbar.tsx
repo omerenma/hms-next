@@ -3,12 +3,25 @@ import DehazeIcon from "@mui/icons-material/Dehaze";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 import { useAnimate, stagger } from "framer-motion";
+import { MenuToggle } from "../Menu/MenuToggle";
 
+interface AnimationProps {
+  transform: string;
+  ease: number[];
+  duration: number;
+  opacity: 1;
+  filter: string;
+  from: string;
+  at: string;
+  animate: [];
+  d: boolean;
+}
 function useMenuAnimation(isOpen: boolean) {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    const menuAnimations = isOpen ? [
+    const menuAnimations: any = isOpen
+      ? [
           [
             "nav",
             { transform: "translateX(0%)" },
@@ -41,7 +54,7 @@ function useMenuAnimation(isOpen: boolean) {
         { d: isOpen ? "M 3 2.5 L 17 16.346" : "M 2 16.346 L 20 16.346" },
         { at: "<" },
       ],
-     // ...menuAnimations,
+      ...menuAnimations,
     ]);
   }, [isOpen]);
 
@@ -55,7 +68,7 @@ const Navbar = () => {
   };
   const scope = useMenuAnimation(isOpen);
   return (
-    <div>
+    <div ref={scope}>
       <div className="hamburger" onClick={handleTogle}>
         {!isOpen ? (
           <DehazeIcon className="hamburger-icon" />
@@ -63,8 +76,8 @@ const Navbar = () => {
           <CloseIcon className="hamburger-icon" />
         )}
       </div>
-      <div  className={!isOpen ? "container-nav" : ""}>
-        <div ref={scope} className="navigation">
+      <nav ref={scope}  className={!isOpen ? "container-nav" : ""}>
+        <nav className="navigation">
           <div className="left-nav">
             <Link href={"product"} className="nav-item">
               Product
@@ -84,8 +97,8 @@ const Navbar = () => {
               Sign up
             </Link>
           </div>
-        </div>
-      </div>
+        </nav>
+      </nav>
     </div>
   );
 };
