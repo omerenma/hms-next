@@ -68,7 +68,7 @@ const Navbar = () => {
   };
   const scope = useMenuAnimation(isOpen);
   return (
-    <div ref={scope}>
+    <div>
       <div className="hamburger" onClick={handleTogle}>
         {!isOpen ? (
           <DehazeIcon className="hamburger-icon" />
@@ -77,7 +77,7 @@ const Navbar = () => {
         )}
       </div>
       <nav ref={scope}  className={!isOpen ? "container-nav" : ""}>
-        <nav className="navigation">
+        <nav  className="navigation">
           <div className="left-nav">
             <Link href={"product"} className="nav-item">
               Product
