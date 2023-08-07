@@ -76,8 +76,8 @@ const Navbar = () => {
           <CloseIcon className="hamburger-icon" />
         )}
       </div>
-      <nav    className={!isOpen ? "container-nav" : ""}>
-        <nav ref={scope}   className="navigation">
+      <nav className={!isOpen ? "container-nav" : ""}>
+        <nav  ref={scope}  className="navigation">
           <div className="left-nav">
           <Link href={"/"} className="nav-item">
               Home

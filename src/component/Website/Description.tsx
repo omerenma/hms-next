@@ -1,15 +1,13 @@
 import React, { useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, animate } from "framer-motion";
 const Description = () => {
-  const container = useRef(null);
   const ref = useRef(null);
-  //    const isInView = useInView({ root: container})
-
-  //    useEffect(() => {
-  //     console.log('Element is in view: ', isInView)
-  //    }, [isInView])
+  const isInView = useInView(ref, {once:true})
+  
   return (
-    <div ref={container} className="home-description">
+    <div  className="home-description"
+   
+    >
       <motion.h1
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -21,31 +19,87 @@ const Description = () => {
       >
         Why choose K-HMS?
       </motion.h1>
-      <div className="home-header-description">
-        <div className="home-header-description-card">
+      <div 
+      ref={ref}
+      className="home-header-description"
+       style={{
+        transform:isInView ? "none" : "translateX(400px)",
+        opacity:isInView ? 1 : 0,
+        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)"
+      }}
+      >
+        <motion.div 
+        whileHover={{
+          scale:1.2,
+          transition:{duration:1}
+        }}
+        whileTap={{scale:0.9}}
+        className="home-header-description-card">
           <p className="home-header-description-card-p">Automation</p>
-          <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div className="home-header-description-card">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. 
+          </p>
+        </motion.div>
+        <motion.div
+        whileHover={{
+          scale:1.2,
+          transition:{duration:1}
+        }}
+        whileTap={{scale:0.9}}
+         className="home-header-description-card">
           <p className="home-header-description-card-p">Reliable</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div className="home-header-description-card">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. 
+          </p>
+        </motion.div>
+        <motion.div
+        whileHover={{
+          scale:1.2,
+          transition:{duration:1}
+        }}
+        whileTap={{scale:0.9}}
+         className="home-header-description-card">
           <p className="home-header-description-card-p">Staff record</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. 
+          </p>
+        </motion.div>
+        {/* <div className="home-header-description-card">
+          <p className="home-header-description-card-p">Patients record</p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. 
+          </p>
         </div>
         <div className="home-header-description-card">
-        <p className="home-header-description-card-p">Patients record</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p className="home-header-description-card-p">Data persistency</p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. 
+          </p>
         </div>
         <div className="home-header-description-card">
-        <p className="home-header-description-card-p">Data persistency</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div className="home-header-description-card">
-        <p className="home-header-description-card-p">Efeciency</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
+          <p className="home-header-description-card-p">Efeciency</p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. 
+          </p>
+        </div> */}
       </div>
     </div>
   );

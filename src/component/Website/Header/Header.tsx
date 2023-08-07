@@ -6,7 +6,13 @@ import HeaderImage from "../../../assets/Masimo_Podcast Image-Hospital Automatio
 import Image from "next/image";
 const Header = () => {
   return (
-    <div className="home-header">
+    <motion.div
+    whileHover={{
+      scale:1.2,
+      transition:{duration:1}
+    }}
+    whileTap={{scale:0.9}}
+     className="home-header">
       <motion.div
       className="box"
       animate={{
@@ -30,7 +36,7 @@ const Header = () => {
        <Image src={HeaderImage} fill={true} alt="HMS" />
       </div>
      
-    </div>
+    </motion.div>
   );
 };
 
