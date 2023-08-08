@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import SimpleMap from "../Map";
+// import Address from '../../../assets/undraw_Delivery_address_re_cjca.png'
+import Image from "next/image";
+import { Address } from "../component/images/icons";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -20,7 +23,7 @@ const Contact = () => {
       </div> */}
 
       <div className="contact-map">
-          <SimpleMap />
+         <Address />
         <div className="contact-main">
         <h2>Love to hear from you, Get in touch</h2>
 
