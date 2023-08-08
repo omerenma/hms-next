@@ -23,7 +23,9 @@ const Contact = () => {
       </div> */}
 
       <div className="contact-map">
+        <div className="address">
          <Address />
+        </div>
         <div className="contact-main">
         <h2>Love to hear from you, Get in touch</h2>
 
