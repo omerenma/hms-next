@@ -5,9 +5,7 @@ const Description = () => {
   const isInView = useInView(ref, {once:true})
   
   return (
-    <div  className="home-description"
-   
-    >
+    <div  className="home-description">
       <motion.h1
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -73,33 +71,7 @@ const Description = () => {
             and scrambled it to make a type specimen book. 
           </p>
         </motion.div>
-        {/* <div className="home-header-description-card">
-          <p className="home-header-description-card-p">Patients record</p>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. 
-          </p>
-        </div>
-        <div className="home-header-description-card">
-          <p className="home-header-description-card-p">Data persistency</p>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. 
-          </p>
-        </div>
-        <div className="home-header-description-card">
-          <p className="home-header-description-card-p">Efeciency</p>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. 
-          </p>
-        </div> */}
+     
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ import addDoctorSlice from "../state/doctor/addDoctorSlice"
 import getDoctorsSlice from "../state/doctor/getDoctorsSlice"
 import getDoctorById from "../state/doctor/getDoctorById"
 import addBusiness from "../state/accountSlice/addBusiness"
+import addEnquiry from "../state/enquiry/addEnquiry"
 export const store = configureStore({
     reducer:{
         // Users slice
@@ -43,7 +44,9 @@ export const store = configureStore({
         getDoctorsSlice,
         getDoctorById,
         // Add business
-        addBusiness
+        addBusiness,
+        // Enquiry
+        addEnquiry
         
         
         

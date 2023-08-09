@@ -74,6 +74,11 @@ name:string;
 email: string;
 role:string;
 }
+interface AddEnquiry {
+  name:string;
+  email:string;
+  message: string;
+}
 export class ApiRequest {
   constructor() {}
 
@@ -116,7 +121,7 @@ export class ApiRequest {
     }
   }
 
-  async post(uri: string, data: BodyType | PatientType | admissionData | AppointmentData | DoctorData 
+  async post(uri: string, data: BodyType | PatientType | admissionData | AppointmentData | DoctorData | AddEnquiry
   ): Promise<LoginResponseType> {
     try {
       const token = localStorage.getItem('token')
