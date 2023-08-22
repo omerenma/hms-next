@@ -79,7 +79,6 @@ interface SelectProps {
   name: string;
   onChange: any;
   item: string[];
-  width: number;
   variant: string;
 }
 
@@ -92,7 +91,10 @@ export const SelectInput = ({ value, item, name, onChange }: SelectProps) => {
       name={name}
       onChange={onChange}
       variant="outlined"
-      style={{ marginLeft: 12, width: "400px", marginTop: 10 }}
+      sx={{
+        height:'40px',
+        width:350
+      }}
     >
       {item.map((item, index) => (
         <MenuItem key={index} value={item}>

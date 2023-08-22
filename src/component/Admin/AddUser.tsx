@@ -99,7 +99,7 @@ const Adduser = () => {
           name="role"
           onChange={(e: SelectChangeEvent) => setRole(e.target.value as string)}
           item={item}
-          width={400}
+          // width={400}
           variant="none"
         />
         <Buttons submit={handleSubmit}>

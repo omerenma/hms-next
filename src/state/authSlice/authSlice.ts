@@ -1,3 +1,4 @@
+'use client'
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiRequest } from "../../services/fetch";
 import { baseUrl , localUrl} from "../url/baseUrl";
@@ -14,6 +15,7 @@ const initialState = {
   loading: false,
   success: false,
   data: {} ,
+  name:"",
   token:"",
   role:"",
   error: false,
@@ -47,6 +49,7 @@ export const loginAction = createAsyncThunk(
         `${localUrl}/users/signin`,
         data
       );
+      localStorage.setItem('role', response && response.role)
       localStorage.setItem('token', response && response.token)
       localStorage.setItem('business_id', response && response.business_id)
       return response;
@@ -81,7 +84,8 @@ export const loginAction = createAsyncThunk(
        state.token = payload && payload.token
        state.role = payload && payload.role,
        state.id = payload && payload.id as string
-       state.business_id = payload && payload.business_id
+       state.business_id = payload && payload.business_id,
+       state.name = payload && payload.name
     })
     builder.addCase(loginAction.rejected, (state, payload) => {
         state.error = true;

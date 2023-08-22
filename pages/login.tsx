@@ -1,19 +1,17 @@
 import React from 'react'
-import Login from '@/src/component/Auth/Login'
+import Logins from '@/src/component/Auth/Login'
 import Navbar from '@/src/component/Website/Navbar/Navbar'
 import Footer from '@/src/component/Website/Footer/Footer'
 
 
-const login = () => {
+const Login = () => {
   return (
     <div>
-      <Navbar/>
     <div style={{display:'grid', placeItems:'center', height:'100vh'}}>
-      <Login/>
+      <Logins/>
     </div>
-    <Footer />
     </div>
   )
 }
 
-export default login
+export default Login

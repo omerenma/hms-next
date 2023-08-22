@@ -43,16 +43,23 @@ const Login = () => {
       email: email,
       password: password,
     };
-    dispatch(loginAction(datas)).then((data) => {
-      if (data.payload) {
-        router.push("/dashboard/layout/layout");
+    dispatch(loginAction(datas)).then((data:any) => {
+      if (data.payload.role === 'admin') {
+        router.push("/dashboards/admin");
+      }
+      if (data.payload.role === 'doctor') {
+        router.push("/dashboards/doctor");
+      }
+      if (data.payload.role === 'reception') {
+        router.push("/dashboards/reception");
+      }
+      if (data.payload.role === 'finace') {
+        router.push("/dashboards/finace");
       }
     });
   };
   return (
-    <Box>
-        {/* <Typography sx={{ textAlign: "center", fontWeight:600 }}>Welcome to Precious clinic Hospital Management System</Typography>
-        <Typography sx={{ textAlign: "center", fontWeight:600 }}>Please login to proceed</Typography> */}
+    <div style={{display:'grid', placeItems:'center', height:'100vh'}}>
     <Box
       sx={{
         display: "flex",
@@ -86,7 +93,7 @@ const Login = () => {
         {loading === true ? "Loading..." : "Login"}
       </Buttons>
     </Box>
-    </Box>
+    </div>
   );
 };
 // className={classes.root}

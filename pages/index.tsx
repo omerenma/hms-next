@@ -1,34 +1,24 @@
-import Head from 'next/head'
-import React, {useMemo, useState} from 'react'
-import {motion, useScroll} from 'framer-motion'
-import { Inter, Roboto, Poppins } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Login from '@/src/component/Auth/Login'
-import { Box, PaletteMode } from '@mui/material'
-import {useTheme, ThemeProvider, createTheme} from '@mui/material/styles'
-import {Brightness4, Brightness7} from '@mui/icons-material'
-import IconButton from '@mui/material/IconButton';
-import Subscription from '@/src/component/Initialization/Subscription'
-import Navbar from '@/src/component/Website/Navbar/Navbar'
-import HomePage from '@/src/component/Website/Home'
-const inter = Inter({ subsets: ['latin'] })
-const ColorModeContext = React.createContext({toggleColorMode: () => {}})
-export default function Home() {
-  const {scrollYProgress} = useScroll()
+import Head from "next/head";
+import React, { useMemo, useEffect } from "react";
+import {useRouter} from 'next/router'
+import { motion, useScroll } from "framer-motion";
+import { Inter, Roboto, Poppins } from "next/font/google";
+import Login from "@/src/component/Auth/Login";
+import Dashboards from "./dashboards/Dashboards";
+import { useAppSeletor } from "@/src/store/hooks";
+import scss from "@/styles/Home.module.scss";
+import Dashboardlayout from "./dashboards/DashboardLayout/layout";
+
+const inter = Inter({ subsets: ["latin"] });
+
+const Home = () => {
+  const { token } = useAppSeletor((state) => state.loginSlice);
+  const { scrollYProgress } = useScroll();
 
   return (
-    <>
-    <motion.div
-    className='progress-bar'
-    style={{scaleX: scrollYProgress}}
-    />
-
-    
-    <div className='home-container'>
-      <HomePage/>
-    </div>
-    </>
-      // <main className={`${styles.main} `}>
-      // </main>
-  )
-}
+    <main className={scss.main}>
+    <Login />
+    </main>
+  );
+};
+export default Home;
