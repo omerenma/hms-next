@@ -15,7 +15,7 @@
     import scss from './SideMenu.module.scss'
     import { useMediaQuery } from '@mui/material';
     import NextLink from 'next/link'
-import { adminMenuList, receptionMenuList, doctorMenuList } from './pages/pages';
+import { adminMenuList, receptionMenuList, doctorMenuList } from '../../../src/component/pages/pages';
 import Main from '../Main/Main';
     const drawerWidth = 240;
 
