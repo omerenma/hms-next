@@ -12,7 +12,7 @@ import Dashboardlayout from "./dashboards/DashboardLayout/layout";
 const inter = Inter({ subsets: ["latin"] });
 
 const Home = () => {
-  const { token } = useAppSeletor((state) => state.loginSlice);
+  // const { token } = useAppSeletor((state) => state.loginSlice);
   const { scrollYProgress } = useScroll();
 
   return (
