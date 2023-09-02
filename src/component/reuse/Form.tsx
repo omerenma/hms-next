@@ -29,7 +29,7 @@ const Form = ({ close, title }: Props) => {
     residential_address: "",
     hospital_card_no:"",
     next_of_kin_name: "",
-    next_of_kin_phone_no: "",
+    next_of_kin_phone: "",
   });
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -48,7 +48,7 @@ const Form = ({ close, title }: Props) => {
       email: formData.email,
       phone_no: formData.phone_no,
       next_of_kin_name: formData.next_of_kin_name,
-      next_of_kin_phone: formData.next_of_kin_phone_no,
+      next_of_kin_phone: formData.next_of_kin_phone,
     };
     dispatch(addPatientAction(data));
 
@@ -61,7 +61,7 @@ const Form = ({ close, title }: Props) => {
       residential_address: "",
       hospital_card_no:"",
       next_of_kin_name: "",
-      next_of_kin_phone_no: "",
+      next_of_kin_phone: "",
     });
     dispatch(getPatientsAction())
   };
@@ -142,8 +142,8 @@ const Form = ({ close, title }: Props) => {
             label="Next of kin phone number"
             variant="outlined"
             onChange={handleFormChange}
-            name="next_of_kin_phone_no"
-            value={formData.next_of_kin_phone_no}
+            name="next_of_kin_phone"
+            value={formData.next_of_kin_phone}
           />
           <StyledButton type="submit" variant="contained">
             {loading ? <CircularProgress size={15} /> : "Submit"}
