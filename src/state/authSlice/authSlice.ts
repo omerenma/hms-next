@@ -38,7 +38,7 @@ export const loginAction = createAsyncThunk(
     try {
       const request = new ApiRequest();
       const response = await request.account_login(
-        `${localUrl}/users/signin`,
+        `${baseUrl}/users/signin`,
         data
       );
       localStorage.setItem('role', response && response.role)
