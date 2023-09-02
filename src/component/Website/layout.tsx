@@ -10,7 +10,7 @@ interface Props {
   children: ReactElement;
 }
 const Layout= ({children}: Props) => {
-  const { role, token} =  useAppSeletor(state => state.loginSlice)
+  const { role} =  useAppSeletor(state => state.loginSlice)
   const [access, setToken] = useState('')
 
    const router = useRouter()
