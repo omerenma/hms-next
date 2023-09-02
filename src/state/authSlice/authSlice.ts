@@ -2,6 +2,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiRequest } from "../../services/fetch";
 import { baseUrl , localUrl} from "../url/baseUrl";
+import axios from "axios";
 interface LoginState {
   loading: boolean;
   success: boolean;
@@ -16,7 +17,7 @@ const initialState = {
   success: false,
   data: {} ,
   name:"",
-  token:"",
+  accessToken:"",
   role:"",
   error: false,
   errorData:{},
@@ -30,15 +31,6 @@ interface Data {
   password: string;
 }
 
-interface LoginResponse {
-    email:string;
-    message:string;
-    name:string;
-    token:string;
-    role:string;
-    data:{} 
-    
-}
 // ACTION
 export const loginAction = createAsyncThunk(
   "login/action",
@@ -50,7 +42,6 @@ export const loginAction = createAsyncThunk(
         data
       );
       localStorage.setItem('role', response && response.role)
-      localStorage.setItem('token', response && response.token)
       localStorage.setItem('business_id', response && response.business_id)
       return response;
     } catch (error:any) {
@@ -66,11 +57,19 @@ export const loginAction = createAsyncThunk(
   initialState,
   reducers: {
     logout:(state) =>{
-      state.data = {}
-      state.token =""
-      state.role = ""
-      state.success = false
-      localStorage.clear()
+      axios.delete(`${localUrl}/users/logout`)
+      .then(response => {
+        // @ts-ignore
+        if(response.payload === 'Logout success'){
+          state.data = {}
+          state.role = ""
+          state.business_id = "",
+          state.name = ''
+          state.id = ""
+          localStorage.clear()
+        }
+      })
+    
     }
   },
   extraReducers(builder) {
@@ -81,8 +80,7 @@ export const loginAction = createAsyncThunk(
       state.loading = false
       state.success = true
        state.data = payload
-       state.token = payload && payload.token
-       state.role = payload && payload.role,
+       state.role = payload && payload.role
        state.id = payload && payload.id as string
        state.business_id = payload && payload.business_id,
        state.name = payload && payload.name

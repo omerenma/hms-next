@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import {
   Box,
   Grid,
@@ -36,6 +37,8 @@ const AddUser = () => {
     });
   };
 
+  useEffect(() => {
+  }, [])
   const handleSubmits = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const data = {

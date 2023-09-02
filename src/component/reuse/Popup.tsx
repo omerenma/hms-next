@@ -8,7 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Dialog from "@mui/material/Dialog";
 import { Delete } from "@mui/icons-material";
 import EditIcon from "@mui/icons-material/Edit";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import MoreHorizIcon from "@mui/icons-material/MoreVert";
 import { deleteUsersAction } from "@/src/state/adminSlice/deleteUserSlice";
 import { useAppDispatch, useAppSeletor } from "@/src/store/hooks";
 import { TextFields, Buttons } from "../reuse/index";
@@ -179,9 +179,9 @@ export default function SimpleDialogDemo({ id }: Id) {
 
   return (
     <div>
-      <MoreHorizIcon onClick={handleClickOpen}>
+      <MoreHorizIcon sx={{color:'#ccc', cursor:'pointer'}} onClick={handleClickOpen} />
         
-      </MoreHorizIcon>
+      {/* </MoreHorizIcon> */}
        
       <SimpleDialog
         selectedValue={selectedValue}

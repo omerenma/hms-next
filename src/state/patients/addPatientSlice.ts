@@ -20,7 +20,7 @@ const initialState = {
     residential_address:string;
     phone_no:string;
     next_of_kin_name:string;
-    next_of_kin_phone_no:string
+    next_of_kin_phone:string
   }
   
   

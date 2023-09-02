@@ -1,5 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit"
 import loginSlice from '../state/authSlice/authSlice'
+import logoutSlice from "../state/authSlice/logoutSlice"
 import addAdminSlice  from "../state/adminSlice/adminSlice"
 import getUsersSlice from "../state/adminSlice/getUsersSlice"
 import deleteUserSlice from "../state/adminSlice/deleteUserSlice"
@@ -21,6 +22,7 @@ export const store = configureStore({
     reducer:{
         // Users slice
         loginSlice,
+        logoutSlice,
         addAdminSlice,
         getUsersSlice,
         deleteUserSlice,

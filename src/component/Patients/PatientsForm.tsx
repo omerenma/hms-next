@@ -11,6 +11,7 @@ import {
 import { addPatientAction } from "@/src/state/patients/addPatientSlice";
 import { useAppDispatch, useAppSeletor } from "@/src/store/hooks";
 import { getPatientsAction } from "@/src/state/patients/getPatientsSlice";
+import axios from "axios";
 
 interface Props {
   close: Function;
@@ -28,7 +29,7 @@ const Form = ({ close, title }: Props) => {
     phone_no: "",
     residential_address: "",
     next_of_kin_name: "",
-    next_of_kin_phone_no: "",
+    next_of_kin_phone: "",
   });
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -36,7 +37,7 @@ const Form = ({ close, title }: Props) => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     const data = {
       name: formData.name,
@@ -46,9 +47,28 @@ const Form = ({ close, title }: Props) => {
       email: formData.email,
       phone_no: formData.phone_no,
       next_of_kin_name: formData.next_of_kin_name,
-      next_of_kin_phone_no: formData.next_of_kin_phone_no,
+      next_of_kin_phone: formData.next_of_kin_phone,
     };
-    dispatch(addPatientAction(data));
+    const response = await dispatch(addPatientAction(data))
+    // @ts-ignore
+  if(response.payload.message === 'Patient added successfully'){
+    dispatch(getPatientsAction())
+  }else{
+    // @ts-ignore
+    if(response.payload.status === '403'){
+      axios.get('http://localhost:5000/users/token', {
+       withCredentials:true,
+       headers:{
+         "Content-Type":"application/json"
+       }
+     })
+     .then(result => {
+       localStorage.removeItem('token')
+       localStorage.setItem('token', result.data)
+     })
+   }
+  }
+ 
 
     setFormData({
       name: "",
@@ -58,9 +78,8 @@ const Form = ({ close, title }: Props) => {
       phone_no: "",
       residential_address: "",
       next_of_kin_name: "",
-      next_of_kin_phone_no: "",
+      next_of_kin_phone: "",
     });
-    dispatch(getPatientsAction());
   };
   return (
     <div className="form-container">
@@ -73,7 +92,22 @@ const Form = ({ close, title }: Props) => {
           top: 70,
         }}
       >
-        <button onClick={() => close(false)}>x</button>
+        <button onClick={() => close(false)}  style={{
+          borderRadius: "100%",
+          width: "30px",
+          height: "30px",
+          background: "#fff",
+          fontSize: "10px",
+          border: "solid 1px #ccc",
+          fontWeight: 600,
+          color: "blue",
+          cursor:'pointer',
+          alignSelf:'self-end',
+          position:'relative',
+          right:2,
+          bottom:2
+          
+        }}>x</button>
         <StyledForm onSubmit={handleSubmit}>
           <Heading variant="h6">{title}</Heading>
           <StyledTextField
@@ -131,8 +165,8 @@ const Form = ({ close, title }: Props) => {
             label="Next of kin phone number"
             variant="outlined"
             onChange={handleFormChange}
-            name="next_of_kin_phone_no"
-            value={formData.next_of_kin_phone_no}
+            name="next_of_kin_phone"
+            value={formData.next_of_kin_phone}
           />
           <StyledButton type="submit" variant="contained">
             {loading ? <CircularProgress size={15} /> : "Submit"}

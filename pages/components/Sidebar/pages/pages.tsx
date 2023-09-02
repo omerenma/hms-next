@@ -33,9 +33,9 @@ export const adminMenuList = [
     // { name: "Home", icon: <Equalizer />, link: "/dashboards" },
     { name: "Add user", icon: <People />, link: "/dashboards/admin/adduser" },
     { name: "Admissions", icon: <Bed />, link: "/dashboards/admin/admissions" },
-    { name: "Appointments", icon: <Bed />, link: "/dashboard/admin/appointments" },
-    { name: "Users", icon: <People />, link: "/dashboard/admin/users" },
-    { name: "Patients", icon: <Medication />, link: "/dashboard/admin/patients" },
+    { name: "Appointments", icon: <Bed />, link: "/dashboards/admin/appointments" },
+    { name: "Users", icon: <People />, link: "/dashboards/admin/users" },
+    { name: "Patients", icon: <Medication />, link: "/dashboards/admin/patients" },
     {
       name: "History",
       icon: <HealthAndSafety />,
@@ -44,34 +44,35 @@ export const adminMenuList = [
     {
       name: "Reports",
       icon: <HealthAndSafety />,
-      link: "/dashboard/admin/reports",
+      link: "/dashboards/admin/reports",
     },
     {
       name: "Doctors",
       icon: <LocalHospital />,
-      link: "/dashboard/admin/doctors",
+      link: "/dashboards/admin/doctors",
     },
   ];
   
   // Reception menu list
  export  const receptionMenuList = [
-    { name: "Patients", icon: <People />, link: "/dashboard/reception/" },
+  {name:"Home", icon:<Home />, link:'/dashboards/reception/'},
+    { name: "Patients", icon: <People />, link: "/dashboards/reception/addpatients" },
     {
       name: "Book appointments",
       icon: <MeetingRoom />,
-      link: "/dashboard/reception/book",
+      link: "/dashboards/reception/appointments",
       
     },
    
     {
       name: "View appointments",
       icon: <MeetingRoom />,
-      link: "/dashboard/reception/appointments",
+      link: "/dashboards/reception/appointments",
     },
     {
       name:"Admissions",
       icon:<BedOutlined/>,
-      link:"/dashboard/reception/admissions"
+      link:"/dashboards/reception/admissions"
     }
   ];
   

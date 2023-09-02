@@ -13,13 +13,15 @@ import {
   Avatar,
 } from "@mui/material/";
 import { useAppDispatch, useAppSeletor } from "@/src/store/hooks";
-import { logout } from "@/src/state/authSlice/authSlice";
+// import { logout } from "@/src/state/authSlice/authSlice";
 import { useRouter } from "next/router";
+import { logoutAction } from "@/src/state/authSlice/logoutSlice";
+
 
 const pages = ["Products", "Pricing", "Blog"];
 
 const Header = () => {
-  const token: string = useAppSeletor((state) => state.loginSlice.token);
+  const token: string = useAppSeletor((state) => state.loginSlice.accessToken);
   const name = useAppSeletor(state => state.loginSlice.name)
 
   const dispatch = useAppDispatch();
@@ -47,8 +49,15 @@ const Header = () => {
   };
 
   const logouts = () => {
-    dispatch(logout());
-    router.push("/");
+    
+    dispatch(logoutAction())
+    .then(response => {
+      if(response.payload === 'Logout success'){
+        localStorage.clear()
+       return router.push("/");
+        
+      }
+    })
   };
   return (
     <AppBar

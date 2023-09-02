@@ -60,6 +60,9 @@ interface Prop {
 }
 const UserTable = ({ data }: Prop) => {
   const classes = useStyles();
+if(!Array.isArray(data)){
+  return null
+}else{
 
   return (
     <div>
@@ -82,7 +85,7 @@ const UserTable = ({ data }: Prop) => {
           </TableHead>
           <TableBody>
             {
-              data.length === 0 ? "LOADING" :  data.map((row) => (
+             !Array.isArray(data) ? "LOADING" :  data && data.map((row) => (
                 <StyledTableRow key={row.id}>
                   <StyledTableCell component="th" scope="row">
                     {row.name}
@@ -100,5 +103,6 @@ const UserTable = ({ data }: Prop) => {
       </TableContainer>
     </div>
   );
+}
 };
 export default UserTable;

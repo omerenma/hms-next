@@ -1,4 +1,5 @@
 import axios, { AxiosError } from "axios";
+import cookie, { Cookies } from 'react-cookie'
 
 interface BodyType {
   business_id:string;
@@ -19,7 +20,7 @@ interface PatientType {
   residential_address: string;
   phone_no: string;
   next_of_kin_name: string;
-  next_of_kin_phone_no: string;
+  next_of_kin_phone: string;
 }
 interface admissionData {
   patients_id:string
@@ -85,7 +86,10 @@ export class ApiRequest {
   async account_login(uri: string, data:LoginData | AddBusiness): Promise<LoginResponseType> {
       try {
        
-        const response = await axios.post(uri, data);
+        const response = await axios.post(uri, data, {
+          withCredentials:true
+        });
+        localStorage.setItem('token', response.data.accessToken)
         
         return response.data
       } catch (error: any) {
@@ -95,18 +99,29 @@ export class ApiRequest {
 
   async getUsers(uri: string) {
     try {
-      const token = localStorage.getItem("token");
+       const token = localStorage.getItem("token");
+      
       const response = await axios.get(uri, {
+        withCredentials:true,
         headers: {
-          "Authorization": `Bearer ${token}`,
-        },
-      });
+           "Authorization": `Bearer ${token}`,
+          "Content-Type":"application/json"
+        }
+      })
+      
       return response.data;
     } catch (error: any) {
       return error.message;
     }
   }
-
+async getToken(uri:string) {
+  try {
+    axios.get('http://localhost:5000/token')
+    .then(response => console.log(response.data))
+  } catch (error) {
+    console.log(error)
+  }
+}
   async getUserById(uri: string) {
     try {
       const token = localStorage.getItem("token");
@@ -140,6 +155,7 @@ export class ApiRequest {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.delete(url, {
+        withCredentials:true,
         headers: {
           "Authorization": `Bearer ${token}`,
         },
@@ -160,6 +176,15 @@ export class ApiRequest {
       return response.data;
     } catch (error: any) {
       return error.message;
+    }
+  }
+
+  async getRefreshToken(uri:string) {
+    try {
+      const response = await axios.get(uri)
+      return response.data
+    } catch (error) {
+      return error
     }
   }
 }
