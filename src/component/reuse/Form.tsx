@@ -48,7 +48,7 @@ const Form = ({ close, title }: Props) => {
       email: formData.email,
       phone_no: formData.phone_no,
       next_of_kin_name: formData.next_of_kin_name,
-      next_of_kin_phone_no: formData.next_of_kin_phone_no,
+      next_of_kin_phone: formData.next_of_kin_phone_no,
     };
     dispatch(addPatientAction(data));
 
