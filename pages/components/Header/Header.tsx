@@ -21,13 +21,13 @@ import { logoutAction } from "@/src/state/authSlice/logoutSlice";
 const pages = ["Products", "Pricing", "Blog"];
 
 const Header = () => {
-  // const token: string = useAppSeletor((state) => state.loginSlice.accessToken);
+   const token: string = useAppSeletor((state) => state.loginSlice.accessToken);
   // const name = useAppSeletor(state => state.loginSlice.name)
 
   const dispatch = useAppDispatch();
   const router = useRouter();
-  // const settings = [token ? "Logout" : "Login"];
-  const settings = ["Logout", "Login"];
+   const settings = [ "Logout" ];
+  // const settings = ["Logout", "Login"];
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
