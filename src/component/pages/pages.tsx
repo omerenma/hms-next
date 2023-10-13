@@ -67,5 +67,5 @@ export const adminMenuList = [
   export const doctorMenuList = [
     //{ name: "Home", icon: <Home />, link: "/dashboard/admin/home" },
     { name: "Appointments", icon: <Bed />, link: "/dashboard/doctor/appointments" },
-    { name: "Patients", icon: <People />, link: "/dashboard/doctor/users" },
+    // { name: "Patients", icon: <People />, link: "/dashboard/doctor/users" },
   ];

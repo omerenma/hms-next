@@ -59,22 +59,6 @@ const Appointments = () => {
               </Grid>
             </Box>
           </Grid>
-           <Grid item xs={12} sm={6}>
-            <Box
-              sx={{
-                height: 300,
-                display: "flex",
-                justifyContent: "space-around",
-                columnGap: 2,
-                flexWrap: "wrap",
-                marginTop: 1,
-                boxShadow: "-5px -2px 8px 0px rgba(144,127,127,0.75)",
-                webkitBoxShadow: "-5px -2px 8px 0px rgba(144,127,127,0.75)",
-                mozBoxShadow: "-5px -2px 8px 0px rgba(144,127,127,0.75)",
-              }}
-            >
-            </Box>
-          </Grid> 
         </Grid>
          <Grid container spacing={1.2}>
           <Grid item xs={12} sm={6}>
@@ -102,9 +86,7 @@ const Appointments = () => {
                     <Typography sx={{textAlign:'center'}}>Specialty</Typography>
                       {
                         data.map((item:any) =>(
-                          <Typography sx={{textAlign:'center'}} key={item.name}>
-                             
-                      </Typography>
+                          <Typography sx={{textAlign:'center'}} key={item.name}></Typography>
                         ))
                       }
                   </Box>
@@ -116,23 +98,6 @@ const Appointments = () => {
                   </Box>
                 </Grid>
               </Grid>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box
-              sx={{
-                height: 300,
-                display: "flex",
-                justifyContent: "space-around",
-                columnGap: 2,
-                flexWrap: "wrap",
-                marginTop: 1,
-                boxShadow: "-5px -2px 8px 0px rgba(144,127,127,0.75)",
-                webkitBoxShadow: "-5px -2px 8px 0px rgba(144,127,127,0.75)",
-                mozBoxShadow: "-5px -2px 8px 0px rgba(144,127,127,0.75)",
-              }}
-            >
-              <Typography>Container spacing 2</Typography>
             </Box>
           </Grid>
         </Grid> 
