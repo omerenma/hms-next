@@ -3,7 +3,7 @@ import React, { ReactElement, useEffect } from "react";
 import Layout from "@/src/component/Website/layout";
 import { Container } from "@mui/material";
 import {Box } from "@material-ui/core";
-import Table from "../../../src/component/reuse/ReuseableTable";
+// import Table from "../../../src/component/reuse/ReuseableTable";
 import { useAppDispatch, useAppSeletor } from "@/src/store/hooks";
 import { getPatientsAction } from "@/src/state/patients/getPatientsSlice";
 
@@ -20,7 +20,7 @@ useEffect(() => {
   return (
     <Box>
       <Container>
-        <Table data={data} title="Add patient"/> 
+        {/* <Table data={data} title="Add patient"/>  */}
       </Container>
     </Box>
   );
