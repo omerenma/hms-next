@@ -1,10 +1,13 @@
+
 import React, { useEffect, useState } from "react";
+
 import {
   withStyles,
   Theme,
   createStyles,
   makeStyles,
 } from "@material-ui/core/styles";
+
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -13,11 +16,13 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@mui/material";
+
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import SimpleDialog from "../reuse/Popup";
 import { useAppSeletor } from "@/src/store/hooks";
 import { getUsersAction } from "@/src/state/adminSlice/getUsersSlice";
+
+import  SimpleDialogDemo  from "./Popup";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -93,7 +98,7 @@ if(!Array.isArray(data)){
                   <StyledTableCell align="center">{row.email}</StyledTableCell>
                   <StyledTableCell align="center">{row.role}</StyledTableCell>
                   <StyledTableCell align="center">
-                    <SimpleDialog id={row.id} />
+                    <SimpleDialogDemo id={row.id} />
                   </StyledTableCell>
                 </StyledTableRow>
               ))

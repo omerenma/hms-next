@@ -9,17 +9,18 @@ import {
 } from "@mui/material";
 import Main from "@/pages/components/Main/Main";
 import { InputField, PasswordField } from "@/src/common";
-import { SelectInput } from "@/src/component/reuse";
+import { SelectInput, StyledTextField } from "@/src/component/reuse";
 import { useAppDispatch, useAppSeletor } from "@/src/store/hooks";
 import { addAdminAction } from "@/src/state/adminSlice/adminSlice";
 import Dashboardlayout from "../DashboardLayout/layout";
+import { addDoctorsAction } from "@/src/state/doctor/addDoctorSlice";
 
 interface MyFormValues {
   name: string;
 }
 
-const AddUser = () => {
-  const [role, setRole] = useState("");
+const AddDoctor = () => {
+  const [specialty, setSpecialty] = useState("");
   const dispatch = useAppDispatch();
   const { loading,  message, success } = useAppSeletor( (state) => state.addAdminSlice);
   const [bizId, setBizId] = useState("")
@@ -27,7 +28,11 @@ const AddUser = () => {
   const [value, setData] = useState({
     name: "",
     email: "",
-    password: "",
+    sex:"",
+    phone_no:"",
+    specialty:"",
+    dob:""
+    
   });
   const id = useAppSeletor((state) => state.loginSlice.business_id);
 
@@ -48,21 +53,19 @@ const AddUser = () => {
       business_id: bizId,
       name: value.name,
       email: value.email,
-      password: value.password,
-      role: role,
+      sex:value.sex,
+      specialty:specialty,
+      phone_no:value.phone_no,
+      dob:value.dob
     };
 
-  dispatch(addAdminAction(data));
+  dispatch(addDoctorsAction(data));
   };
 
   const item = [
-    "admin",
-    "reception",
-    "doctor",
-    "patients",
-    "finance",
-    "lab technician",
-    "nurse",
+    "Gynaecologist",
+    "Dermatologist",
+    "Pediatrician"
   ];
 
   return (
@@ -89,7 +92,7 @@ const AddUser = () => {
               color:'#ccc'
             }}
           >
-            Add user
+            Add Doctor
           </Typography>
 
           <Box
@@ -101,30 +104,52 @@ const AddUser = () => {
             }}
           >
             <InputField
-              label="Your name"
+              label="Name"
               name="name"
               value={value.name}
               onChange={(e) => handleChangeInput(e)}
-              placeholder="Your name"
+              placeholder="Name"
             />
+             <InputField
+              label="Sex"
+              name="sex"
+              value={value.sex}
+              onChange={(e) => handleChangeInput(e)}
+              placeholder="Genda"
+            />
+             <InputField
+              label="Phone"
+              name="phone_no"
+              value={value.phone_no}
+              onChange={(e) => handleChangeInput(e)}
+              placeholder="Phone number"
+            />
+           
+             <StyledTextField
+            label="Date of birth"
+            type="date"
+            variant="outlined"
+            onChange={ handleChangeInput}
+            name="dob"
+            value={value.dob}
+          />
             <InputField
-              label="Your email"
+              label="Email"
               name="email"
               value={value.email}
               onChange={(e) => handleChangeInput(e)}
-              placeholder="Your email"
+              placeholder="Email"
             />
             <SelectInput
-              value={role}
-              name="role"
+              value={specialty}
+              name="specialty"
               onChange={(e: SelectChangeEvent) =>
-                setRole(e.target.value as string)
+                setSpecialty(e.target.value as string)
               }
               item={item}
               variant="none"
             />
-            <PasswordField name="password" value={value.password} onChange={(e) => handleChangeInput(e)}
- />
+            {/* <PasswordField name="password" value={value.password} onChange={(e) => handleChangeInput(e)}/> */}
             <button
               type="button"
               style={{
@@ -149,7 +174,7 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
-AddUser.getLayout = function getLayout(page: React.ReactElement) {
+export default AddDoctor;
+AddDoctor.getLayout = function getLayout(page: React.ReactElement) {
   return <Dashboardlayout>{page}</Dashboardlayout>;
 };

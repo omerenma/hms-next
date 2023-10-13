@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react";
+import React, { useState, createContext } from "react";
 import {
   Table,
   TableBody,
@@ -8,27 +8,32 @@ import {
   TableRow,
   Paper,
   Box,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { Button } from "@mui/material";
 import Form from "./BookAppointmentForm";
-export const Context = createContext('')
+export const Context = createContext("");
 interface Props {
-data:{}[];
-title:string
-};
-function BookAppointmentTable({data, title}:Props) {
-    const [open, setOpen] = useState(false)
-    const [id, setId] = useState('')
-    const showForm = (id:string) => {
-        setOpen(prev => !prev)
-        setId(id)
-    }
+  data: {}[];
+  title: string;
+}
+function BookAppointmentTable({ data, title }: Props) {
+  const [open, setOpen] = useState(false);
+  const [id, setId] = useState("");
+  const showForm = (id: string) => {
+    setOpen((prev) => !prev);
+    setId(id);
+  };
   return (
-   
     <Box>
-       {open ?  <Context.Provider value={id}><Form close={setOpen} title={title}/> </Context.Provider>: null}
-       <Typography style={{textAlign:'center'}} variant="h6">View and schedule appointments</Typography>
+      {open ? (
+        <Context.Provider value={id}>
+          <Form close={setOpen} title={title} />{" "}
+        </Context.Provider>
+      ) : null}
+      <Typography style={{ textAlign: "center" }} variant="h6">
+        View and schedule appointments
+      </Typography>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -41,23 +46,33 @@ function BookAppointmentTable({data, title}:Props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {!Array.isArray(data) ? "Loading data" : data.map((row:any) => (
-            <TableRow key={row.id_doctor}>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.sex}</TableCell>
-              <TableCell>{row.email}</TableCell>
-              <TableCell>{row.phone_no}</TableCell>
-              <TableCell>{row.specialty}</TableCell>
-              <TableCell>
-                <Button  id={row.id} onClick={() =>showForm(row.id_doctor)} sx={{textTransform:"capitalize"}}>Schedule</Button>
-                </TableCell>
-            </TableRow>
-          ))}
+            {!Array.isArray(data)
+              ? "Loading data"
+              : data.map((row: any) => (
+                  <TableRow key={row.id_doctor}>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.sex}</TableCell>
+                    <TableCell>{row.email}</TableCell>
+                    <TableCell>{row.phone_no}</TableCell>
+                    <TableCell>{row.specialty}</TableCell>
+                    <TableCell>
+                      <Button
+                        id={row.id}
+                        onClick={() => {
+                          showForm(row.id);
+                         
+                        }}
+                        sx={{ textTransform: "capitalize" }}
+                      >
+                        Schedule
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
           </TableBody>
         </Table>
       </TableContainer>
     </Box>
-   
   );
 }
 

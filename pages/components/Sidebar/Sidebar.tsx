@@ -68,7 +68,7 @@ import Main from '../Main/Main';
 
     type Props = {
       children?: React.ReactNode
-      role?:string
+      role:string
     }
     const SideMenu = ({children, role}: Props) => {
       const theme = useTheme();

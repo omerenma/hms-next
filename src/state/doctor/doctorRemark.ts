@@ -3,14 +3,6 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import {ApiRequest} from '../../services/fetch'
 import { baseUrl , localUrl} from '../url/baseUrl';
 
-interface AdminState {
-    loading: boolean;
-    success: boolean;
-    data: {};
-    error: false;
-    errorData: {};
-}
-
 const initialState = {
     loading: false,
     success: false,
@@ -21,25 +13,20 @@ const initialState = {
     
   }
 
-  interface AdminData {
-    business_id:string;
+  interface AddEnquiry {
     name:string;
-    email: string;
-    role:string;
-    sex?:any
-    specialty?:any
-    phone?:any
-    password?:string
+    email:string;
+    message: string;
   }
   
   // ACTION
 
-  export const addAdminAction = createAsyncThunk(
-    "admin/action",
-    async (data: AdminData, thunkApi) => {
+  export const doctorRemarkAction = createAsyncThunk(
+    "enquiry/action",
+    async (data: AddEnquiry, thunkApi) => {
       try {
         const request = new ApiRequest();
-        const response = await request.post(`${localUrl}/users/register`, data);
+        const response = await request.post(`${localUrl}/adddoctorremark/add`, data);
         
         return response;
       } catch (error:any) {
@@ -50,22 +37,22 @@ const initialState = {
   );
   
   
-   const addAdminSlice = createSlice({
-    name: "addUser",
+   const addAddEnquirySlice = createSlice({
+    name: "enquiry",
     initialState,
     reducers: {
     },
     extraReducers(builder) {
-      builder.addCase(addAdminAction.pending, (state, action) => {
+      builder.addCase(doctorRemarkAction.pending, (state, action) => {
         state.loading = true
       })
-      builder.addCase(addAdminAction.fulfilled, (state, {payload}) => {
+      builder.addCase(doctorRemarkAction.fulfilled, (state, {payload}) => {
         state.loading = false
         state.success = true
          state.data = payload
-         state.message = payload.message
+         state.message = payload.message as string
       })
-      builder.addCase(addAdminAction.rejected, (state, action) => {
+      builder.addCase(doctorRemarkAction.rejected, (state, action) => {
           state.error = true;
           state.errorData = action.payload as Object
       })
@@ -73,4 +60,4 @@ const initialState = {
   });
   
   
-  export default addAdminSlice.reducer
+  export default addAddEnquirySlice.reducer

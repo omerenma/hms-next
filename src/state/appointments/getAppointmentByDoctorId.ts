@@ -19,10 +19,10 @@ const initialState = {
 
   export const getAppointmentsByIdAction = createAsyncThunk(
     "getSingleAppointment/action",
-    async (id:number) => {
+    async (id:any) => {
       try {
         const request = new ApiRequest();
-        const response = await request.getUsers(`${localUrl}/appointment/get/${id}`);
+        const response = await request.getUserById(`${localUrl}/appointment/get/${id}`);
         return response;
       } catch (error:any) {
         return error.message

@@ -20,8 +20,8 @@ type LoginProps = {
   token: string;
 };
 
-const Login = () => {
-  const { loading } = useAppSeletor((state) => state.loginSlice);
+const Login = ()=> {
+   const { loading } = useAppSeletor((state) => state.loginSlice);
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -48,7 +48,7 @@ const Login = () => {
         router.push("/dashboards/admin");
       }
       if (data.payload.role === 'doctor') {
-        router.push("/dashboards/doctor");
+        router.push("/dashboards/doctor/appointments");
       }
       if (data.payload.role === 'reception') {
         router.push("/dashboards/reception");

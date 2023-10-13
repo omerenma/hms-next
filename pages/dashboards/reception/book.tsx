@@ -1,13 +1,29 @@
-import React from 'react'
 import Dashboardlayout from '../DashboardLayout/layout'
 
-const BookApointment = () => {
+import React, { ReactElement , useEffect} from 'react'
+import Layout from '@/src/component/Website/layout'
+import { Container } from '@mui/material'
+import { useAppDispatch, useAppSeletor } from '@/src/store/hooks'
+import { getAppointmentsAction } from '@/src/state/appointments/getAppointments'
+import BookAppointmentTable from '@/src/component/Appointments/BookAppointment'
+import { getDoctorsAction } from '@/src/state/doctor/getDoctorsSlice'
+
+
+const BookAppointments = () => {
+    const {data} = useAppSeletor(state => state.getDoctorsSlice)
+const dispatch = useAppDispatch()
+    useEffect(() => {
+        dispatch(getDoctorsAction())
+    }, [dispatch])
   return (
-    <div>
-      <h1>Book appointment</h1>
-    </div>
+
+        <Container>
+            <BookAppointmentTable data={data} title='Book Appintment' />
+        </Container>
   )
 }
 
-export default BookApointment
-BookApointment.getLayout = (pages:React.ReactElement) => <Dashboardlayout>{pages}</Dashboardlayout>
+
+
+export default BookAppointments
+BookAppointments.getLayout = (pages:React.ReactElement) => <Dashboardlayout>{pages}</Dashboardlayout>

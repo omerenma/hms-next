@@ -135,26 +135,3 @@ export const Heading = styled(Typography)({
   width: "100%",
 });
 
-// export const  MyDatePicker = () =>{
-//   const [selectedDate, setSelectedDate] = useState(new Date());
-
-//   const handleDateChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-//     // setSelectedDate(e.target.value);
-//   };
-
-//   return (
-//     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-//       <KeyboardDatePicker
-//         margin="normal"
-//         id="date-picker-dialog"
-//         label="Select date"
-//         format="MM/dd/yyyy"
-//         value={selectedDate}
-//         onChange={() => console.log("")}
-//         KeyboardButtonProps={{
-//           'aria-label': 'change date',
-//         }}
-//       />
-//     </MuiPickersUtilsProvider>
-//   );
-// }

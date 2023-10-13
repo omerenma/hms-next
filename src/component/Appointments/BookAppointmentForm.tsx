@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Paper } from "@material-ui/core";
 import CircularProgress from "@mui/material/CircularProgress";
 import {
@@ -22,6 +22,7 @@ interface Props {
 }
 
 const Form = ({ close, title }: Props) => {
+  const [bizId, setBizId] = useState<string>("")
   const dispatch = useAppDispatch();
   const id = useContext(Context);
 
@@ -30,6 +31,11 @@ const Form = ({ close, title }: Props) => {
     patients_id: "",
     appointment_date: "",
   });
+
+  useEffect(() => {
+    const id:any = localStorage.getItem('business_id')
+    setBizId(id)
+  }, [])
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -39,9 +45,10 @@ const Form = ({ close, title }: Props) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const data = {
-      patients_id: formData.patients_id,
+      patient_id: formData.patients_id,
        doctor_id: JSON.stringify(id),
       appointment_date: formData.appointment_date,
+      business_id:bizId
     };
     dispatch(bookAppointmentsAction(data));
 

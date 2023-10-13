@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Paper } from "@material-ui/core";
 import CircularProgress from "@mui/material/CircularProgress";
 import {
@@ -13,18 +13,24 @@ import { addAdmissionAction } from "@/src/state/admissionSlice/addAdmission";
 
 interface Props {
   close: Function;
-  title:string;
+  // title:string;
 }
 
-const Form = ({ close, title }: Props) => {
+const Form = ({ close }: Props) => {
   const dispatch = useAppDispatch();
   const { loading, success } = useAppSeletor((state) => state.addPatientSlice);
+  const [bizId, setBizId] = useState('')
   const [formData, setFormData] = useState({
     patients_id: "",
     admission_date: "",
     admission_room_number:"",
     ailment:""
   });
+
+  useEffect(() => {
+    const id:any = localStorage.getItem('business_id')
+    setBizId(id)
+  }, [])
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -37,7 +43,8 @@ const Form = ({ close, title }: Props) => {
         patients_id: formData.patients_id,
         admission_date: formData.admission_date,
         admission_room_number:formData.admission_room_number,
-        ailment:formData.ailment
+        ailment:formData.ailment,
+        business_id:bizId
     };
     dispatch(addAdmissionAction(data));
 
@@ -61,7 +68,7 @@ const Form = ({ close, title }: Props) => {
       >
         <button onClick={() => close(false)}>x</button>
         <StyledForm onSubmit={handleSubmit}>
-          <Heading variant="h6">{title}</Heading>
+          <Heading variant="h6">Add admission</Heading>
           <StyledTextField
             label="Hospital number"
             variant="outlined"

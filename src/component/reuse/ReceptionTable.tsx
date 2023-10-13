@@ -10,8 +10,6 @@ import {
   Box,
   Typography
 } from "@material-ui/core";
-import { Button } from "@mui/material";
-import Form from "./AppointmentForm";
 import { getAppointmentsAction } from "@/src/state/appointments/getAppointments";
 import { useAppDispatch } from "@/src/store/hooks";
 export const Context = createContext('')
@@ -54,8 +52,10 @@ function ReceptionTable({data, title}:Props) {
                 <TableCell>Email</TableCell>
                 <TableCell>Specialty</TableCell>
                 <TableCell>Patients name</TableCell>
+                <TableCell>Patient sex</TableCell>
                 <TableCell>Patients phone</TableCell>
                 <TableCell>Patients email</TableCell>
+                <TableCell>Date</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -65,8 +65,11 @@ function ReceptionTable({data, title}:Props) {
                   <TableCell>{row.sex}</TableCell>
                   <TableCell>{row.email}</TableCell>
                   <TableCell>{row.specialty}</TableCell>
-                  <TableCell>{row[4]}</TableCell>
-                  <TableCell>{row.phone_no}</TableCell>
+                  <TableCell>{row. patient_name}</TableCell>
+                  <TableCell>{row.patient_sex}</TableCell>
+                  <TableCell>{row.patient_phone_no}</TableCell>
+                  <TableCell>{row.patient_email}</TableCell>
+                  <TableCell>{row.appointment_date}</TableCell>
                 </TableRow>
               ))
               }

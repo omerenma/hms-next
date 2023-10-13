@@ -8,6 +8,8 @@ import editUser from "../state/adminSlice/editUser"
 import getUserById from "../state/adminSlice/getUserById"
 import addPatientSlice from "../state/patients/addPatientSlice"
 import getPatientsSlice from "../state/patients/getPatientsSlice"
+import deletePatientSlice from "../state/patients/deletePatientSlice"
+import getSinglePatient from "../state/patients/getSinglePatient"
 import getAdmissionsSlice from "../state/admissionSlice/getAdmissionsSlice"
 import addAdmission from "../state/admissionSlice/addAdmission"
 import getAppointments from "../state/appointments/getAppointments"
@@ -18,6 +20,10 @@ import getDoctorsSlice from "../state/doctor/getDoctorsSlice"
 import getDoctorById from "../state/doctor/getDoctorById"
 import addBusiness from "../state/accountSlice/addBusiness"
 import addEnquiry from "../state/enquiry/addEnquiry"
+import toggleEditPatientSlice from "../state/patients/toggleEditPatientSlice"
+import toggleAddPatientSlice from "../state/patients/toggleAddPatientSlice"
+import editPatientSlice from "../state/patients/editPatientSlice"
+import doctorRemark from "../state/doctor/doctorRemark"
 export const store = configureStore({
     reducer:{
         // Users slice
@@ -32,6 +38,10 @@ export const store = configureStore({
         // Patients slices
         addPatientSlice,
         getPatientsSlice,
+        getSinglePatient,
+        deletePatientSlice,
+        editPatientSlice,
+        
 
         // Admissions
         getAdmissionsSlice,
@@ -45,10 +55,15 @@ export const store = configureStore({
         addDoctorSlice,
         getDoctorsSlice,
         getDoctorById,
+        doctorRemark,
         // Add business
         addBusiness,
         // Enquiry
-        addEnquiry
+        addEnquiry,
+        //Toggle patients state
+        toggleEditPatientSlice,
+        toggleAddPatientSlice
+        
         
         
         

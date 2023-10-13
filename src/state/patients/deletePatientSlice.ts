@@ -1,16 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 import {ApiRequest} from '../../services/fetch'
-import { baseUrl , localUrl} from '../url/baseUrl';
-
-interface AdminState {
-    loading: boolean;
-    success: boolean;
-    data: {};
-    error: false;
-    errorData: {};
-}
-
+import { baseUrl, localUrl } from '../url/baseUrl';
 const initialState = {
     loading: false,
     success: false,
@@ -21,25 +12,28 @@ const initialState = {
     
   }
 
-  interface AdminData {
-    business_id:string;
+  interface patientData {
     name:string;
     email: string;
-    role:string;
-    sex?:any
-    specialty?:any
-    phone?:any
-    password?:string
+    sex:string;
+    dob:string;
+    residential_address:string;
+    phone_no:string;
+    next_of_kin_name:string;
+    next_of_kin_phone:string
   }
+  
   
   // ACTION
 
-  export const addAdminAction = createAsyncThunk(
-    "admin/action",
-    async (data: AdminData, thunkApi) => {
+  export const deletePatientAction = createAsyncThunk(
+    "deletepatient/action",
+    async (id: any, thunkApi) => {
       try {
         const request = new ApiRequest();
-        const response = await request.post(`${localUrl}/users/register`, data);
+        const response = await request.delete(
+          `${localUrl}/patient/`+id
+        );
         
         return response;
       } catch (error:any) {
@@ -50,22 +44,22 @@ const initialState = {
   );
   
   
-   const addAdminSlice = createSlice({
-    name: "addUser",
+   const deletePatientSlice = createSlice({
+    name: "deletePatients",
     initialState,
     reducers: {
     },
     extraReducers(builder) {
-      builder.addCase(addAdminAction.pending, (state, action) => {
+      builder.addCase(deletePatientAction.pending, (state, action) => {
         state.loading = true
       })
-      builder.addCase(addAdminAction.fulfilled, (state, {payload}) => {
+      builder.addCase(deletePatientAction.fulfilled, (state, {payload}) => {
         state.loading = false
         state.success = true
          state.data = payload
          state.message = payload.message
       })
-      builder.addCase(addAdminAction.rejected, (state, action) => {
+      builder.addCase(deletePatientAction.rejected, (state, action) => {
           state.error = true;
           state.errorData = action.payload as Object
       })
@@ -73,4 +67,4 @@ const initialState = {
   });
   
   
-  export default addAdminSlice.reducer
+  export default deletePatientSlice.reducer

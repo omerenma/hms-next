@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Button, Paper, FormLabel } from "@mui/material/";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
@@ -10,185 +9,119 @@ import { Delete } from "@mui/icons-material";
 import EditIcon from "@mui/icons-material/Edit";
 import MoreHorizIcon from "@mui/icons-material/MoreVert";
 import { deleteUsersAction } from "@/src/state/adminSlice/deleteUserSlice";
-import { useAppDispatch, useAppSeletor } from "@/src/store/hooks";
-import { TextFields, Buttons } from "../reuse/index";
-import { Box } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+import { useAppDispatch } from "@/src/store/hooks";
 import { editUserAction } from "@/src/state/adminSlice/editUser";
 import { getUsersAction } from "@/src/state/adminSlice/getUsersSlice";
-import { Typography } from "@material-ui/core";
-
+import {  toggleEditOpen } from "@/src/state/patients/toggleEditPatientSlice";
+import { deletePatientAction } from "@/src/state/patients/deletePatientSlice";
 const emails = ["username@gmail.com", "user02@gmail.com"];
 
 export interface SimpleDialogProps {
   open: boolean;
+  setOpen: (arg: boolean) => void;
   selectedValue: string;
   onClose: (value: string) => void;
   id: number;
 }
-interface Users {
-  name: string;
-  email: string;
-  role: string;
-  id: string;
-}
 
-function SimpleDialog(props: SimpleDialogProps) {
+export function SimpleDialog({
+  id,
+  open,
+  selectedValue,
+  onClose,
+  setOpen,
+}: SimpleDialogProps) {
+
   const dispatch = useAppDispatch();
   const [value, setValue] = React.useState({
     name: "",
     email: "",
     role: "",
   });
+  
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setValue({
-      ...value,
-      [e.target.name]: e.target.value,
-    });
+    const data = {
+      id: JSON.stringify(id),
+      name: value.name,
+      email: value.email,
+      role: value.role,
+    };
+    dispatch(editUserAction(data));
+    dispatch(getUsersAction());
   };
-
-  const handleSubmit = (e:React.SyntheticEvent) => {
-    e.preventDefault()
-    const data  = {
-        id:JSON.stringify(props.id),
-        name:value.name,
-        email:value.email,
-        role:value.role
-    }
-    dispatch(editUserAction(data))
-    dispatch(getUsersAction())
-  }
-  const [openEdit, setEdit] = React.useState(false);
-  const { onClose, selectedValue, open } = props;
 
   const handleClose = () => {
     onClose(selectedValue);
   };
 
-  const handleOpenEdit = () => setEdit((prev) => !prev);
+  const handleOpenEdit = () => {
+    dispatch(toggleEditOpen())
+     setOpen(false);
+  };
 
+ 
   return (
-    <React.Fragment>
-      {openEdit && (
-        <Paper
-          sx={{
-            position: "absolute",
-            top: 100,
-            right: 10,
-            // height: "60vh",
-            border: "3px solid #eee",
-            width: 400,
-            padding: 2,
-            zIndex: "999px",
-          }}
-        >
-            <Box sx={{display:'flex', justifyContent:'space-around'}}>
-            <Typography variant="h6">Edit user</Typography>
-          <Button
-            style={{ border: "none", backgroundColor: "transparent" }}
-            onClick={() => setEdit(false)}
-          >
-            <CloseIcon sx={{ color: "tomato" }} />
-          </Button>
-
-            </Box>
-         
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-             <FormLabel sx={{alignSelf:'flex-start', fontSize:12, fontWeight:'bold'}}>Name</FormLabel>   
-              <TextFields
-                type="text"
-                label=""
-                onChange={handleChange}
-                name="name"
-                value={value.name}
-                width={50}
-              />
-             <FormLabel sx={{alignSelf:'flex-start', fontSize:12, fontWeight:'bold'}}>Email</FormLabel>  
-              <TextFields
-                type="text"
-                label=""
-                onChange={handleChange}
-                name="email"
-                value={value.email}
-                width={50}
-              />
-              <FormLabel sx={{alignSelf:'flex-start', fontSize:12, fontWeight:'bold'}}>Role</FormLabel>  
-              <TextFields
-                type="text"
-                label=""
-                onChange={handleChange}
-                name="role"
-                value={value.role}
-                width={50}
-              />
-            </Box>
-          
-          <Buttons width={150} submit={handleSubmit}>
-            Submit
-          </Buttons>
-        </Paper>
-      )}
-
-      <Dialog onClose={handleClose} open={open}>
-        <List>
-          <ListItem disableGutters>
-            <ListItemButton autoFocus onClick={handleOpenEdit}>
-              <EditIcon sx={{ color: "tomato" }} />
-              <ListItemText primary="Edit user" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-          <ListItem disableGutters>
-            <ListItemButton
-              autoFocus
-              onClick={() => dispatch(deleteUsersAction(props.id))}
-            >
-              <Delete sx={{ color: "tomato" }} />
-              <ListItemText primary="Delete user" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </Dialog>
-    </React.Fragment>
+        <Dialog onClose={handleClose} open={open}>
+          <List>
+            <ListItem disableGutters>
+              <ListItemButton autoFocus onClick={handleOpenEdit}>
+                <EditIcon sx={{ color: "tomato" }} />
+                <ListItemText primary="Edit patient" />
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+            <ListItem disableGutters onClick={() => dispatch(deletePatientAction(id))}>
+              <ListItemButton
+                autoFocus
+              >
+                <Delete sx={{ color: "tomato" }} />
+                <ListItemText primary="Delete patient" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </Dialog>
   );
 }
 
 interface Id {
-  id: number;
+  id?: any;
 }
-export default function SimpleDialogDemo({ id }: Id) {
 
+
+
+export default function SimpleDialogDemo({ id }: Id) {
+const [rowsId, setRowsId] =  React.useState<any>(null)
   const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+  const [selectedValue, setSelectedValue] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = (value: string) => {
     setOpen(false);
     setSelectedValue(value);
   };
 
+ React.useEffect(() => {
+  const id = localStorage.getItem('editRowId')
+  setRowsId(id)
+ }, [])
+
   return (
     <div>
-      <MoreHorizIcon sx={{color:'#ccc', cursor:'pointer'}} onClick={handleClickOpen} />
-        
-      {/* </MoreHorizIcon> */}
-       
+      <MoreHorizIcon
+        sx={{ color: "#ccc", cursor: "pointer" }}
+         onClick={handleClickOpen}
+      />
       <SimpleDialog
         selectedValue={selectedValue}
         open={open}
         onClose={handleClose}
-        id={id}
-        />
+        id={rowsId}
+        setOpen={setOpen}
+      />
     </div>
   );
 }

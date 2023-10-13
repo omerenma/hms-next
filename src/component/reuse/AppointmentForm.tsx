@@ -38,7 +38,7 @@ const Form = ({ close, title }: Props) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const data = {
-      patients_id: formData.patient_id,
+      patient_id: formData.patient_id,
       doctor_id: JSON.stringify(id),
       appointment_date: formData.appointment_date,
     };

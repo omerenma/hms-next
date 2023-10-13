@@ -12,16 +12,17 @@ import {
   LocalHospital,
   MeetingRoom,
   BedOutlined,
+  Dashboard
 } from "@mui/icons-material";
 
 // Admin menu list
 export const adminMenuList = [
-    // { name: "Home", icon: <Equalizer />, link: "/dashboards" },
+     { name: "Home", icon: <Dashboard />, link: "/dashboards" },
     { name: "Add user", icon: <People />, link: "/dashboards/admin/adduser" },
     { name: "Admissions", icon: <Bed />, link: "/dashboards/admin/admissions" },
     { name: "Appointments", icon: <Bed />, link: "/dashboards/admin/appointments" },
     { name: "Users", icon: <People />, link: "/dashboards/admin/users" },
-    { name: "Patients", icon: <Medication />, link: "/dashboards/admin/patients" },
+    { name: "Patients", icon: <Medication />, link: "/dashboards/admin/addpatients" },
     {
       name: "History",
       icon: <HealthAndSafety />,
@@ -35,7 +36,7 @@ export const adminMenuList = [
     {
       name: "Doctors",
       icon: <LocalHospital />,
-      link: "/dashboards/admin/doctors",
+      link: "/dashboards/admin/adddoctor",
     },
   ];
   
@@ -46,7 +47,7 @@ export const adminMenuList = [
     {
       name: "Book appointments",
       icon: <MeetingRoom />,
-      link: "/dashboards/reception/appointments",
+      link: "/dashboards/reception/book",
       
     },
    

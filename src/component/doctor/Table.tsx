@@ -33,11 +33,13 @@ function MyTable({ data }: Props) {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell style={{ fontSize: 10 }}>Patiens name</TableCell>
-              <TableCell style={{ fontSize: 10 }}>Sex</TableCell>
-              <TableCell style={{ fontSize: 10 }}>Email</TableCell>
+              <TableCell style={{ fontSize: 10 }}>Doctor name</TableCell>
+              <TableCell style={{ fontSize: 10 }}>Doctor sex</TableCell>
+              <TableCell style={{ fontSize: 10 }}>Doctor email</TableCell>
+              <TableCell style={{fontSize:10}}>Patient name</TableCell>
+              <TableCell style={{fontSize:10}}>Patient sex</TableCell>
               <TableCell style={{ fontSize: 10 }}>Hospital number</TableCell>
-              <TableCell style={{ fontSize: 10 }}>Phone</TableCell>
+              <TableCell style={{ fontSize: 10 }}>Patient phone_no</TableCell>
               <TableCell style={{ fontSize: 10 }}>Appointment date</TableCell>
               <TableCell style={{ fontSize: 10 }}>Remark</TableCell>
             </TableRow>
@@ -50,8 +52,10 @@ function MyTable({ data }: Props) {
                     <TableCell>{row.name}</TableCell>
                     <TableCell>{row.sex}</TableCell>
                     <TableCell>{row.email}</TableCell>
+                    <TableCell>{row.patient_name}</TableCell>
+                    <TableCell>{row.patient_sex}</TableCell>
                     <TableCell>{row.patients_id}</TableCell>
-                    <TableCell>{row.phone_no}</TableCell>
+                    <TableCell>{row.patient_phone_no}</TableCell>
                     <TableCell>{row.appointment_date}</TableCell>
                     <TableCell>
                       <button

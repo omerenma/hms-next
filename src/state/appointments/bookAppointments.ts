@@ -21,9 +21,10 @@ const initialState = {
   }
 
   interface AppointmentData {
-    patients_id:string;
+    patient_id:string;
     doctor_id: string;
     appointment_date:string;
+    business_id?:any
   }
   
   // ACTION
