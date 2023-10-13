@@ -24,7 +24,7 @@ function MyTable({data, title}:Props) {
    
   return (
     <Box>
-       {open ? <Form close={setOpen} title={title}/> : null}
+       {open ? <Form close={setOpen} /> : null}
         <Button sx={{float:'right'}} onClick={showForm}>{title}</Button>
         <h3>View admissions</h3>
       <TableContainer component={Paper}>
